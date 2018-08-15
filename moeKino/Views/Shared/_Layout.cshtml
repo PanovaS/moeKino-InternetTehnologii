@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+   
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body style="background-image:url(../../Content/background-top.png);">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-image:url(../../Content/background-top.png)">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                   
+                </button>
+                <img src="~/Content/moeKino.png" class="moeKino" style="width:270px;height:80px;margin-top:-1px;"/>
+            </div>
+            <div class="navbar-collapse collapse">
+               
+                <ul class="nav navbar-nav">
+                    <li style="margin-top:10px;padding-left:20px;"><a href="~/Home/Index"><img src="~/Content/Home.png" width="40px;"></a>  
+                    </li>
+                    <li style="margin-top:20px;font-size:20px;font-weight:500;padding-left:30px;">@Html.ActionLink("ABOUT", "About", "Home",null,new { @style="color:rgb(3,174,218)"})</li>
+                    <li style="margin-top:20px;font-size:20px;font-weight:500;padding-left:30px;">@Html.ActionLink("CONTACT", "Contact", "Home",null,new { @style = "color:rgb(3,174,218)" })</li>
+                    <li style="margin-top:20px;font-size:20px;font-weight:500;padding-left:30px;">@Html.ActionLink("FILMS", "Index", "Films",null,new { @style = "color:rgb(3,174,218)" })</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content" style="padding-top:70px;background-color:rgb(11,70,126);">
+        @RenderBody()
+       
+       
+        <footer>
+
+            <div style="float:right;">
+                <a href="https://www.facebook.com/"><img src="~/Content/footer-facebook.png" width="35px;" /></a>
+                <a href="https://www.instagram.com/"><img src="~/Content/instagram.png" width="35px;" /></a>
+                <a href="https://accounts.google.com/ServiceLogin/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=googlemail&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=AddSession"><img src="~/Content/gmail.png" width="35px;" /></a>
+                <a href="https://www.youtube.com/"><img src="~/Content/youtube.png" width="35px;" /></a>
+                <a href="https://twitter.com/?lang=en"><img src="~/Content/twiter.png" width="35px;" /></a>
+                <a href="https://www.pinterest.com/"><img src="~/Content/pinterest.png" width="35px;" /></a>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
