@@ -4,63 +4,96 @@
     ViewBag.Title = "Index";
 }
 
-
 <table>
     <tr>
         <td><img src="https://media.giphy.com/media/8754ImlPF86US07FUi/source.gif" width="200px;"></td>
         <td>
-        <p class="btn btn-default">
+
             @if (User.IsInRole("Admin"))
             {
+            <div class="btn btn-default" style="margin-left:660px;">
+                <img src="~/Content/addMovie.png" width="40px;" />
                 @Html.ActionLink("Create New", "Create")
-
+            </div>
             }
-        </p>
+
         </td>
     </tr>
 </table>
+<br />
+<br />
+@if (User.IsInRole("Admin"))
+{
+    <table class="table" id="movieTable">
+        <thead>
+            <tr style="font-size:20px;color:rgb(3,174,218)">
+                <th>Movie Name </th>
+                <th>Movie Image</th>
+                <th></th>
+            </tr>
+        </thead>
 
-<table class="table" id="movieTable">
-    <thead>
-        <tr style="font-size:20px;color:rgb(3,174,218)">
-            <th>Movie Name </th>
-            <th>Movie Image</th>
-            <th></th>
-        </tr>
-    </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="font-size:25px;color:rgb(3,174,218)">@Html.DisplayFor(modelItem => item.Name) </td>
 
-    <tbody>
+                    <td><img src="@item.Url" width="200px" /> </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+
+                        @if (User.IsInRole("User") || User.IsInRole("Visitor") || User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+                        }
+
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })*@
+                        <button data-movie-id="@item.Id" class="btn btn-danger js-delete">Delete</button>
+
+                    </td>
+
+
+
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+    <table>
         @foreach (var item in Model)
         {
-            <tr>
-                <td style="font-size:25px;color:rgb(3,174,218)">@Html.DisplayFor(modelItem => item.Name) </td>
 
-                <td><img src="@item.Url" width="200px" /> </td>
-
+            <tr class="col-md-4">
                 <td>
-                    @if (User.IsInRole("Admin"))
-                    {
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
-                    }
+                    <br>
+                    <img src="@item.Url" width="250px" />
+                    <br>
+                    <p style="font-size:30px;color:rgb(3,174,218)">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </p>
+
                     @if (User.IsInRole("User") || User.IsInRole("Visitor") || User.IsInRole("Admin"))
                     {
                         @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
                     }
-                    @if (User.IsInRole("Admin"))
-                    {
-                        @*@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })*@
-                        <button data-movie-id="@item.Id" class="btn btn-danger js-delete">Delete</button>
-                    }
+                    <br>
+                    <br>
                 </td>
-
 
 
             </tr>
 
         }
-    </tbody>
 
-</table>
+
+    </table>
+}
 @section Scripts{
     <script>
         $(document).ready(function () {
@@ -70,8 +103,8 @@
                 if (confirm("Are you sure you want to delete this movie?")) {
                     $.ajax({
                         url: "/api/Films1/" + button.attr("data-movie-id"),
-                            method: "DELETE",
-                            success: function () {
+                        method: "DELETE",
+                        success: function () {
                             table.row(button.parents("tr").remove().draw());
                         }
                     });
@@ -81,4 +114,4 @@
 
         });
     </script>
-    }
+}

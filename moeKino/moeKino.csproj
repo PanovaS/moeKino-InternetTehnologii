@@ -248,6 +248,7 @@
     <Content Include="Content\4.jpg" />
     <Content Include="Content\5.jpg" />
     <Content Include="Content\6.jpg" />
+    <Content Include="Content\addMovie.png" />
     <Content Include="Content\back.png" />
     <Content Include="Content\background-menu.png" />
     <Content Include="Content\background-top.png" />
