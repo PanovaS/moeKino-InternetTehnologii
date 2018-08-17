@@ -4,36 +4,69 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
+<h2 style="color:rgb(3,174,218)">All clients</h2>
+<p style="float:right" >
+    <img src="~/Content/addClient.png" width="35px;" />@Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<br />
+<br />
+
+<table class="table" style="color:rgb(3,174,218)" id="clientsTable">
+    <thead>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Points)
+            @Html.DisplayNameFor(model => model.Email)
         </th>
+
         <th></th>
     </tr>
+        </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Points)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ClientId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ClientId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ClientId })
-        </td>
-    </tr>
-}
-
+                <td>
+                    @Html.ActionLink("Edit client's info", "Edit", new { id = item.ClientId }, new { @class = "btn btn-warning" }) |
+                    @Html.ActionLink("Details about the client", "Details", new { id = item.ClientId }, new { @class = "btn btn-info" }) |
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.ClientId }, new { @class = "btn btn-danger" })*@
+                    <button id="@item.ClientId" class="btn btn-danger js-delete" >Delete the client </button>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $("#clientsTable").DataTable();
+            $(".js-delete").on("click", function () {
+                var button = $(this);
+                if (confirm("Are you sure you want to delete this client?")) {
+                    $.ajax({
+                        url: "/api/Clients1/" + button.attr("id"),
+                        method: "DELETE",
+                        success: function () {
+                            table.row(button.parents("tr").remove().draw());
+                        }
+                    });
+                }
+
+            });
+
+        });
+
+
+    </script>
+    
+    
+    }

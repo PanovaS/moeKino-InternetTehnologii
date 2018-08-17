@@ -78,9 +78,12 @@ else
                         @Html.DisplayFor(modelItem => item.Name)
                     </p>
 
-                    @if (User.IsInRole("User") || User.IsInRole("Visitor") || User.IsInRole("Admin"))
+                    @if (User.IsInRole("User") || User.IsInRole("Visitor"))
                     {
                         @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+                        <div class="btn btn-default">
+                            @Html.ActionLink("Add clients", "AddClientToMovie", new { id = item.Id })
+                        </div>
                     }
                     <br>
                     <br>

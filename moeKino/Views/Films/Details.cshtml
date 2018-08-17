@@ -5,8 +5,9 @@
 }
 
 <h2 style="color:rgb(3,174,218)">Details about @Model.Name</h2>
-
-<div>
+<table style="color:rgb(3,174,218)">
+    <tr>
+        <td style="width:600px;">
     <hr />
     <dl class="dl-horizontal"  style="color:rgb(3,174,218)">
         <dt>
@@ -53,7 +54,7 @@
             @Html.DisplayNameFor(model => model.ShortDescription)
         </dt>
 
-        <dd>
+        <dd >
             @Html.DisplayFor(model => model.ShortDescription)
         </dd>
 
@@ -66,7 +67,33 @@
         </dd>
 
     </dl>
-</div>
+        </td>
+        <td>
+            <div style="margin-top:-150px;margin-left:50px;">
+                @{ 
+                    if (Model.clients.Capacity != 0)
+                    {
+                <h2><i>List of clients for this movie: </i></h2>
+                        foreach (moeKino.Models.Client c in Model.clients)
+                        {
+                    <ul>
+                        <li>
+                            <a href="/Clients/Details/@c.ClientId">@c.Name</a>
+                        </li>
+                    </ul>
+
+                        }
+                    }
+                    else {
+                    <h3>There are no clients for this movie.</h3>
+                        }
+                    }
+            </div>
+                
+
+        </td>
+        </tr>
+    </table>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id },new { @class="btn btn-warning"}) </p>
 <p class="btn btn-default">

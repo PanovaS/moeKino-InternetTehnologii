@@ -4,10 +4,9 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 style="color:rgb(3,174,218)">Details about the client</h2>
 
-<div>
-    <h4>Client</h4>
+<div style="color:rgb(3,174,218);font-size:15px;">
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -17,18 +16,25 @@
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Points)
+            @Html.DisplayNameFor(model => model.Email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Points)
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>List of movies: </dt>
+        <dd>
+
         </dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
-    @Html.ActionLink("Back to List", "Index")
+<p class="btn btn-default">
+    <img src="~/Content/back.png" width="35px;" /> @Html.ActionLink("Back to List", "Index")
 </p>
+<p class="btn btn-warning">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) 
+</p>
+

@@ -1,0 +1,16 @@
+﻿@model moeKino.Models.RatingClient
+@{
+    ViewBag.Title = "AddClientToMovie";
+}
+
+<h2>Add client to the movie - @ViewBag.Name</h2>
+
+@using (Html.BeginForm("AddClientToMovie", "Films"))
+{
+    @Html.HiddenFor(m => m.FilmId)
+
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.ClientId, new SelectList(Model.Clients, "ClientId", "Name"), new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+}

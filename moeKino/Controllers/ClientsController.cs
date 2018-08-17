@@ -10,6 +10,7 @@ using moeKino.Models;
 
 namespace moeKino.Controllers
 {
+    [Authorize]
     public class ClientsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -46,7 +47,7 @@ namespace moeKino.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClientId,Name,Points")] Client client)
+        public ActionResult Create([Bind(Include = "ClientId,Name,Email")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace moeKino.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClientId,Name,Points")] Client client)
+        public ActionResult Edit([Bind(Include = "ClientId,Name,Email")] Client client)
         {
             if (ModelState.IsValid)
             {

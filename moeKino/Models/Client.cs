@@ -12,7 +12,7 @@ namespace moeKino.Models
         [Display(Name="Name and Surname")]
         [Required]
         public string Name { get; set; }
-        public int Points { get; set; }
+        public string Email { get; set; }
 
         public virtual List<Film> movies { get; set; }
         public Client() {

@@ -473,3 +473,5 @@ C:\Users\User\Desktop\New folder\IT-moeKino\moeKino\obj\Debug\moeKino.csproj.Cor
 C:\Users\User\Desktop\New folder\IT-moeKino\moeKino\obj\Debug\moeKino.csproj.CopyComplete
 C:\Users\User\Desktop\New folder\IT-moeKino\moeKino\obj\Debug\moeKino.dll
 C:\Users\User\Desktop\New folder\IT-moeKino\moeKino\obj\Debug\moeKino.pdb
+C:\Users\User\Desktop\moeKino\IT-moeKino\moeKino\obj\Debug\moeKino.Migrations.addedNewClass1.resources
+C:\Users\User\Desktop\moeKino\IT-moeKino\moeKino\obj\Debug\moeKino.Migrations.changedClass.resources

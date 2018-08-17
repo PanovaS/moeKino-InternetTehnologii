@@ -19,6 +19,30 @@ namespace moeKino.Controllers
         {
             return View(db.Films.ToList());
         }
+        //2 akcii za dodavanje klient na odreden film
+        [HttpGet]
+        public ActionResult AddClientToMovie(int id) {
+            var model = new RatingClient();
+            model.FilmId = id;
+            model.Clients = db.Clients.ToList();
+            var film = db.Films.Find(id);
+            ViewBag.Name = film.Name;
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult AddClientToMovie(RatingClient model)
+        {
+            var film = db.Films.Find(model.FilmId);
+            var client = db.Clients.Find(model.ClientId);
+            film.clients.Add(client);
+            db.SaveChanges();
+            return View("Index", db.Films.ToList());
+        }
+
+
+
+
+
 
         // GET: Films/Details/5
         public ActionResult Details(int? id)
