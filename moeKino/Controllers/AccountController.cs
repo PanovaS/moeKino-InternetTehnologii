@@ -27,7 +27,7 @@ namespace moeKino.Controllers
             var model = new AddToRoleModel();
             model.Roles.Add("Admin");
             model.Roles.Add("User");
-            model.Roles.Add("Visitor");
+           
 
             return View(model);
         }

@@ -245,9 +245,9 @@
     <Compile Include="Migrations\201808211301196_InitialCreate.Designer.cs">
       <DependentUpon>201808211301196_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808211307599_InitialCreate1.cs" />
-    <Compile Include="Migrations\201808211307599_InitialCreate1.Designer.cs">
-      <DependentUpon>201808211307599_InitialCreate1.cs</DependentUpon>
+    <Compile Include="Migrations\201808241658103_deletedRoleVisitor.cs" />
+    <Compile Include="Migrations\201808241658103_deletedRoleVisitor.Designer.cs">
+      <DependentUpon>201808241658103_deletedRoleVisitor.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -650,8 +650,8 @@
     <EmbeddedResource Include="Migrations\201808211301196_InitialCreate.resx">
       <DependentUpon>201808211301196_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808211307599_InitialCreate1.resx">
-      <DependentUpon>201808211307599_InitialCreate1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808241658103_deletedRoleVisitor.resx">
+      <DependentUpon>201808241658103_deletedRoleVisitor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
