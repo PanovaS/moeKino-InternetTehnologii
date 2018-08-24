@@ -36,27 +36,60 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td style="font-size:25px;color:rgb(3,174,218)">@Html.DisplayFor(modelItem => item.Name) </td>
+            <tr>
+                <td style="font-size:20px;color:rgb(3,174,218)">@Html.DisplayFor(modelItem => item.Name) </td>
 
-                    <td><img src="@item.Url" width="200px" /> </td>
+                <td>
+                    <img src="@item.Url" width="250px" height="250px" />
+                    <br>
+                    @{
 
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+        if (item.Rating >= 20)
+        {
+                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+else
+{
+                <br>
 
-                        @if (User.IsInRole("User") || User.IsInRole("Visitor") || User.IsInRole("Admin"))
-                        {
-                            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
-                        }
+}
+if (item.Rating >= 40)
+{
+                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+if (item.Rating >= 60)
+{
+                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+if (item.Rating >= 80)
+{
+                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+if (item.Rating >= 100)
+{
+                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+                <br>
 
-                        @*@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })*@
-                        <button data-movie-id="@item.Id" class="btn btn-danger js-delete">Delete</button>
+                    }
 
-                    </td>
+                </td>
+               
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+
+
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+
+
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })*@
+                    <button data-movie-id="@item.Id" class="btn btn-danger js-delete">Delete</button>
+
+                </td>
 
 
 
-                </tr>
+            </tr>
 
             }
         </tbody>
@@ -72,31 +105,76 @@ else
             <tr class="col-md-4">
                 <td>
                     <br>
-                    <img src="@item.Url" width="250px" />
+                    <img src="@item.Url" width="250px" height="250px" />
                     <br>
-                    <p style="font-size:30px;color:rgb(3,174,218)">
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </p>
+
+                    @{
+
+if (item.Rating >= 20)
+{
+                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                        }
+else {
+                            <br>
+
+                        }
+if (item.Rating >= 40)
+                        {
+                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+if (item.Rating >= 60)
+{
+                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+if (item.Rating >= 80)
+{
+                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+if (item.Rating >= 100)
+{
+                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+<br>
+
+                    }
+
 
                     @if (User.IsInRole("User") || User.IsInRole("Visitor"))
-                    {
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
-                        <div class="btn btn-default">
-                            @Html.ActionLink("Add clients", "AddClientToMovie", new { id = item.Id })
-                        </div>
-                    }
-                    <br>
-                    <br>
+    {
+                @Html.ActionLink(item.Name, "Details", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:rgb(3,174,218)" })
+
+                <div>
+                    <img src="https://www.freedomis.co.uk/ekmps/shops/freedomis/resources/Design/075688-3d-glossy-blue-orb-icon-business-basket.png" width="50px">
+                    @Html.ActionLink("Add clients", "AddClientToMovie", new { id = item.Id })
+                </div>
+}
+else
+{
+
+                <p style="font-size:20px;color:rgb(3,174,218)">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </p>
+                <br>
+
+}
+
+
+
+                    <img src="~/Content/hr.png" width="260px" height="30px" style="border-bottom-left-radius: 50% 40%;border-bottom-right-radius: 50% 40%;" />
                 </td>
 
-
+           
+                  
+               
             </tr>
+
 
         }
 
 
     </table>
 }
+    
 @section Scripts{
     <script>
         $(document).ready(function () {

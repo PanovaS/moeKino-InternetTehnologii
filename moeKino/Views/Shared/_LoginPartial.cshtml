@@ -3,20 +3,32 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+       
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <li>
+                <br>
+                <img src="https://media.giphy.com/media/cn6JDRUYMMXvi/giphy.gif" width="130px" style="margin-left:50px;float:right;margin-top:-15px;">
+             <br>
+                @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li>
+                <br>
+                <br>
+                <br>
+                
+                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            </li>
+        </ul>
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
         <li style="padding-top:20px;padding-right:20px;"><img src="~/Content/register.png" width="30px;" /> <span style="display:inline;">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</span></li>
-        <li  style="padding-top:20px;"><img src="~/Content/login.png" width="30px;" /> <span style="display:inline;">@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })<span></li>
+        <li style="padding-top:20px;"><img src="~/Content/login.png" width="30px;" /> <span style="display:inline;">@Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })<span></li>
     </ul>
 }

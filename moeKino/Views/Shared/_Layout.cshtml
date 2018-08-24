@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                    
                 </button>
-                <img src="~/Content/moeKino.png" class="moeKino" style="width:240px;height:100px;margin-top:-1px;margin-left:42px;"/>
+                <img src="~/Content/moeKino.png" class="moeKino" style="width:240px;height:100px;margin-top:-1px;margin-left:-15px;"/>
             </div>
             <div class="navbar-collapse collapse">
                
@@ -27,10 +27,14 @@
                     <li style="margin-top:10px;padding-left:20px;">
                         <a href="~/Home/Index"><img src="~/Content/Home.png" width="40px;"></a>
                     </li>
-                    <li style="margin-top:20px;font-size:20px;font-weight:500;padding-left:30px;">@Html.ActionLink("ABOUT", "About", "Home", null, new { @style = "color:rgb(3,174,218)" })</li>
+                    
                     <li style="margin-top:20px;font-size:20px;font-weight:500;padding-left:30px;">@Html.ActionLink("MOVIES", "Index", "Films", null, new { @style = "color:rgb(3,174,218)" })</li>
-                    <li style="margin-top:20px;font-size:20px;font-weight:500;padding-left:30px;">@Html.ActionLink("CLIENTS", "Index", "Clients", null, new { @style = "color:rgb(3,174,218)" })</li>
-
+                    <li style="margin-top:20px;font-size:20px;font-weight:500;padding-left:30px;">@Html.ActionLink("COMING SOON", "topMovies", "Films", null, new { @style = "color:rgb(3,174,218)" })</li>
+                    <li style="margin-top:20px;font-size:20px;font-weight:500;padding-left:30px;">@Html.ActionLink("RATING MOVIES", "RatingMovies", "Films", null, new { @style = "color:rgb(3,174,218)" })</li>
+                    @if (User.IsInRole("Admin"))
+    {
+                <li style="margin-top:20px;font-size:20px;font-weight:500;padding-left:30px;">@Html.ActionLink("CLIENTS", "Index", "Clients", null, new { @style = "color:rgb(3,174,218)" })</li>
+}
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

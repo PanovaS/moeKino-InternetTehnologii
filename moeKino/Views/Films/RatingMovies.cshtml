@@ -1,0 +1,73 @@
+﻿@model IEnumerable<moeKino.Models.Film>
+@{
+    ViewBag.Title = "RatingMovies";
+}
+
+
+<div style="height:550px;">
+    <img src="https://steemitimages.com/0x0/https://steemitimages.com/DQmP3chDXaZe2Zhw4GM8RygKNRMydCEQ3Kq6iqrgxfsrLGB/fivestar.gif" width="100px" />
+    <br>
+@{ 
+
+    foreach (var item in Model) {
+
+        if (item.Rating >= 30) {
+
+    <div class="col-md-4">
+        @if (User.IsInRole("Admin") || User.IsInRole("Visitor") || User.IsInRole("User"))
+        {
+        @Html.ActionLink(item.Name, "DetailsRatingMovies", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:rgb(3,174,218);font-style:italic;" })
+        }
+        else {
+
+           <p style="font-size:20px;color:rgb(3,174,218);font-style:italic;">@item.Name</p>
+        }
+
+
+        <br>
+        <img src="@item.Url" width="200px;" />
+        <br>
+        @{
+
+        if (item.Rating >= 20)
+        {
+            <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+    }
+    else
+    {
+        <br>
+
+}
+if (item.Rating >= 40)
+{
+    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+if (item.Rating >= 60)
+{
+    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+if (item.Rating >= 80)
+{
+    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+if (item.Rating >= 100)
+{
+    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+}
+    <br>
+
+        }
+
+        <br>
+        <img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-04/enhanced/webdr04/22/7/anigif_original-9632-1398165072-4.gif" width="210px" height="25px" style="border-radius:20%" />
+        <br>
+        <br>
+    </div>
+         
+        }
+
+    }
+
+}
+
+</div>

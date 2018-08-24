@@ -167,7 +167,7 @@ namespace moeKino.Controllers
         {
             return View();
         }
-
+        private ApplicationDbContext db = new ApplicationDbContext();
         //
         // POST: /Account/Register
         [HttpPost]
@@ -175,6 +175,7 @@ namespace moeKino.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -182,13 +183,17 @@ namespace moeKino.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    var client = new Client();
+                    client.Name = model.Email;
+                    client.Email = model.Email;
+                    db.Clients.Add(client);
+                    db.SaveChanges();
                     return RedirectToAction("AddUserToRole", "Account");
                 }
                 AddErrors(result);

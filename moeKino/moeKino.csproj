@@ -241,6 +241,14 @@
     <Compile Include="Migrations\201808171405457_changedClass.Designer.cs">
       <DependentUpon>201808171405457_changedClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808211301196_InitialCreate.cs" />
+    <Compile Include="Migrations\201808211301196_InitialCreate.Designer.cs">
+      <DependentUpon>201808211301196_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808211307599_InitialCreate1.cs" />
+    <Compile Include="Migrations\201808211307599_InitialCreate1.Designer.cs">
+      <DependentUpon>201808211307599_InitialCreate1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddToCard.cs" />
@@ -267,6 +275,16 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\border-image1.jpg" />
+    <Content Include="Content\Comming soon\A Simple Favor.png" />
+    <Content Include="Content\Comming soon\A Star Is Born.png" />
+    <Content Include="Content\Comming soon\Fantastic Beasts The Crimes of Grindelwald.png" />
+    <Content Include="Content\Comming soon\Johnny English Strikes Again.png" />
+    <Content Include="Content\Comming soon\Kin.png" />
+    <Content Include="Content\Comming soon\Mortal Engines.png" />
+    <Content Include="Content\Comming soon\The Happytime Murders.png" />
+    <Content Include="Content\Comming soon\The House with a Clock in Its Walls.png" />
+    <Content Include="Content\Comming soon\The Nun.png" />
+    <Content Include="Content\Comming soon\The Predator.png" />
     <Content Include="Content\curtain.png" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
@@ -428,12 +446,13 @@
     <Content Include="Content\footer-facebook.png" />
     <Content Include="Content\gmail.png" />
     <Content Include="Content\Home.png" />
+    <Content Include="Content\hr.png" />
     <Content Include="Content\instagram.png" />
     <Content Include="Content\login.png" />
     <Content Include="Content\moeKino.png" />
-    <Content Include="Content\our.css" />
     <Content Include="Content\pinterest.png" />
     <Content Include="Content\register.png" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\twiter.png" />
     <Content Include="Content\youtube.png" />
     <Content Include="favicon.ico" />
@@ -583,6 +602,9 @@
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Films\AddClientToMovie.cshtml" />
+    <Content Include="Views\Films\topMovies.cshtml" />
+    <Content Include="Views\Films\RatingMovies.cshtml" />
+    <Content Include="Views\Films\DetailsRatingMovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -624,6 +646,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808171405457_changedClass.resx">
       <DependentUpon>201808171405457_changedClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211301196_InitialCreate.resx">
+      <DependentUpon>201808211301196_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808211307599_InitialCreate1.resx">
+      <DependentUpon>201808211307599_InitialCreate1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -4,98 +4,103 @@
     ViewBag.Title = "Details";
 }
 
-<h2 style="color:rgb(3,174,218)">Details about @Model.Name</h2>
+<h2 style="color:rgb(3,174,218)">@Model.Name</h2>
+
 <table style="color:rgb(3,174,218)">
     <tr>
         <td style="width:600px;">
-    <hr />
-    <dl class="dl-horizontal"  style="color:rgb(3,174,218)">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            Image
-        </dt>
-
-        <dd>
-         <img src="@Url.Content(@Model.Url)" width="200px"/>
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Genre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Genre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Director)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Director)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReleaseDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ShortDescription)
-        </dt>
-
-        <dd >
-            @Html.DisplayFor(model => model.ShortDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Stars)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Stars)
-        </dd>
-
-    </dl>
-        </td>
-        <td>
-            <div style="margin-top:-150px;margin-left:50px;">
-                @{ 
-                    if (Model.clients.Capacity != 0)
-                    {
-                <h2><i>List of clients for this movie: </i></h2>
-                        foreach (moeKino.Models.Client c in Model.clients)
-                        {
-                    <ul>
-                        <li>
-                            <a href="/Clients/Details/@c.ClientId">@c.Name</a>
-                        </li>
-                    </ul>
-
-                        }
-                    }
-                    else {
-                    <h3>There are no clients for this movie.</h3>
-                        }
-                    }
-            </div>
+        
+            <dl class="dl-horizontal" style="color:rgb(3,174,218)">
                 
 
+               
+
+                <dt>
+
+                </dt>
+
+                <dd class="s3">
+
+                    <img class="s3" src="@Url.Content(@Model.Url)" width="200px" />
+                    <br>
+                   
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Genre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Genre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Director)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Director)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ReleaseDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ReleaseDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ShortDescription)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ShortDescription)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Stars)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Stars)
+                </dd>
+
+            </dl>
         </td>
-        </tr>
-    </table>
+        <td>
+            <div style="padding-top:120px;padding-left:80px;">
+                @{
+                    if (Model.clients.Capacity != 0)
+                    {
+                        <h2><img src="http://beta1.logisoft-cy.net/wp-content/uploads/2014/09/group1.png" width="50px">  Clients:</h2>
+                        foreach (moeKino.Models.Client c in Model.clients)
+                        {
+                            <ul>
+                                <li>
+                                    <a href="/Clients/Details/@c.ClientId">@c.Name</a>
+                                </li>
+                            </ul>
+
+                        }
+                    }
+                    else
+                    {
+                        <h3><img src="http://beta1.logisoft-cy.net/wp-content/uploads/2014/09/group1.png" width="50px">  No clients</h3>
+                    }
+                }
+            </div>
+
+
+        </td>
+    </tr>
+</table>
+    
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id },new { @class="btn btn-warning"}) </p>
-<p class="btn btn-default">
-    <img src="~/Content/back.png" width="35px;" /> @Html.ActionLink("Back to List", "Index")
+  <a href="/Films/Index"> <img src="https://cdn2.iconfinder.com/data/icons/office-elements/512/operation-back.png" width="60px;"> </a>
+</p>
+<p>
+
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn", @style = "background-color:rgb(3,174,218);color:white;" })
 </p>
