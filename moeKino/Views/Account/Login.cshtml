@@ -3,12 +3,12 @@
 @{
     ViewBag.Title = "Log in if you already have account";
 }
-<div style="height:520px;">
-    <h2 style="color:rgb(3,174,218)">@ViewBag.Title</h2>
+<div style="min-height:480px;width:98%">
+    <h2 style = "color:white;margin-left:10%">@ViewBag.Title</h2>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <section id="loginForm">
-                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", @style = "color:rgb(3,174,218)" }))
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", @style = "color:#f1d8b3;margin-left:30%;" }))
                 {
                     @Html.AntiForgeryToken()
                     <hr />
@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Log in" class="btn btn-success" />
+                            <input type="submit" value="Log in" class="btn btn-success mt-4 btn-block" />
                         </div>
                     </div>
                     <p class="btn btn-default">
@@ -50,8 +50,8 @@
                 }
             </section>
         </div>
-        <div class="col-md-4">
-            <section id="socialLoginForm">
+        <div class="col-md-4 ml-4">
+            <section id="socialLoginForm" style="margin-top: 20%;">
                 @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
             </section>
         </div>

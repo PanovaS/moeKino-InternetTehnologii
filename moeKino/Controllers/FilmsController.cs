@@ -21,7 +21,7 @@ namespace moeKino.Controllers
             
             return View(db.Films.ToList());
         }
-        public ActionResult topMovies() {
+        public ActionResult Soon() {
 
             return View();
         }

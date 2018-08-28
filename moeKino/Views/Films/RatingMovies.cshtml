@@ -4,70 +4,71 @@
 }
 
 
-<div style="height:550px;">
+<div class="text-center">
     <img src="https://steemitimages.com/0x0/https://steemitimages.com/DQmP3chDXaZe2Zhw4GM8RygKNRMydCEQ3Kq6iqrgxfsrLGB/fivestar.gif" width="100px" />
     <br>
-@{ 
+    <table style="margin-left:12%" class="w-75">
 
-    foreach (var item in Model) {
+        <tr class="row">            
+                @{
 
-        if (item.Rating >= 30) {
+                    foreach (var item in Model)
+                    {
 
-    <div class="col-md-4">
-        @if (User.IsInRole("Admin") || User.IsInRole("Visitor") || User.IsInRole("User"))
-        {
-        @Html.ActionLink(item.Name, "DetailsRatingMovies", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:rgb(3,174,218);font-style:italic;" })
-        }
-        else {
+                        if (item.Rating >= 30)
+                        {
 
-           <p style="font-size:20px;color:rgb(3,174,218);font-style:italic;">@item.Name</p>
-        }
-
-
-        <br>
-        <img src="@item.Url" width="200px;" />
-        <br>
-        @{
-
-        if (item.Rating >= 20)
-        {
-            <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-    }
-    else
+            <td class="col-md-4 mb-4">
+                @if (User.IsInRole("Admin") || User.IsInRole("User"))
     {
-        <br>
+            @Html.ActionLink(item.Name, "DetailsRatingMovies", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:rgb(3,174,218);font-style:italic;" })
+}
 
+                <br>
+                <img src="@item.Url" width="200px;" />
+                <br>
+                @{
+
+        if (item.Rating < 20)
+        {
+            <h5 class="text-warning mb-2 mt-1">Сѐ уште нема рејтинг</h5>
+
+}
+else
+{
+
+if (item.Rating >= 20)
+{
+            <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
 }
 if (item.Rating >= 40)
 {
-    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+            <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
 }
 if (item.Rating >= 60)
 {
-    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+            <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
 }
 if (item.Rating >= 80)
 {
-    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+            <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
 }
 if (item.Rating >= 100)
 {
-    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+            <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
 }
-    <br>
-
-        }
-
-        <br>
-        <img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-04/enhanced/webdr04/22/7/anigif_original-9632-1398165072-4.gif" width="210px" height="25px" style="border-radius:20%" />
-        <br>
-        <br>
-    </div>
-         
-        }
-
-    }
-
+            <br>
 }
+                }
 
+                <h5 class="text-white font-italic mb-0">@item.Name</h5>                
+                <img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-04/enhanced/webdr04/22/7/anigif_original-9632-1398165072-4.gif" width="210px" height="25px" style="border-radius:20%" />
+                
+            </td>
+
+                        }
+                    }
+
+                }
+            </table>
 </div>
