@@ -4,13 +4,13 @@
     ViewBag.Title = "Details";
 }
 
-<h2 style="color:rgb(3,174,218)">@Model.Name</h2>
+<h2 style="color:white;" class="text-center">@Model.Name</h2>
 
-<table style="color:rgb(3,174,218)">
+<table class="w-75" style="margin-left: 20%;color:#f1d8b3;">
     <tr>
         <td style="width:600px;">
         
-            <dl class="dl-horizontal" style="color:rgb(3,174,218)">
+            <dl class="dl-horizontal">
                 
 
                
@@ -30,7 +30,7 @@
                     @Html.DisplayNameFor(model => model.Genre)
                 </dt>
 
-                <dd>
+                <dd class="text-white">
                     @Html.DisplayFor(model => model.Genre)
                 </dd>
 
@@ -38,7 +38,7 @@
                     @Html.DisplayNameFor(model => model.Director)
                 </dt>
 
-                <dd>
+                <dd class="text-white">
                     @Html.DisplayFor(model => model.Director)
                 </dd>
 
@@ -46,7 +46,7 @@
                     @Html.DisplayNameFor(model => model.ReleaseDate)
                 </dt>
 
-                <dd>
+                <dd class="text-white">
                     @Html.DisplayFor(model => model.ReleaseDate)
                 </dd>
 
@@ -54,7 +54,7 @@
                     @Html.DisplayNameFor(model => model.ShortDescription)
                 </dt>
 
-                <dd>
+                <dd class="text-white">
                     @Html.DisplayFor(model => model.ShortDescription)
                 </dd>
 
@@ -62,14 +62,14 @@
                     @Html.DisplayNameFor(model => model.Stars)
                 </dt>
 
-                <dd>
+                <dd class="text-white">
                     @Html.DisplayFor(model => model.Stars)
                 </dd>
 
             </dl>
         </td>
         <td>
-            <div style="padding-top:120px;padding-left:80px;">
+            <div style="padding-top:50px;">
                 @{
                     if (Model.clients.Capacity != 0)
                     {
@@ -97,10 +97,10 @@
 </table>
     
 
-<p>
+<p style="padding-left:10%">
   <a href="/Films/Index"> <img src="https://cdn2.iconfinder.com/data/icons/office-elements/512/operation-back.png" width="60px;"> </a>
 </p>
-<p>
+<p style="padding-left:10%">
 
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn", @style = "background-color:rgb(3,174,218);color:white;" })
 </p>
