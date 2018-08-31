@@ -180,7 +180,13 @@ a {
     }
 #anchor:hover {
     text-decoration: underline;
-    font-size: 0.88rem;
+    font-size: 0.75rem;
+}
+
+.none:hover {
+    text-decoration: underline;
+    color: #bc8f8f;
+    font-size:1rem;
 }
 
 .paginate_button a {

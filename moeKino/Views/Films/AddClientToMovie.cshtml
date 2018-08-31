@@ -2,15 +2,17 @@
 @{
     ViewBag.Title = "AddClientToMovie";
 }
+<div class="text-center" style="color:#f1d8b3;min-height:550px">
+    <h2>Add client to the movie - @ViewBag.Name</h2>
 
-<h2>Add client to the movie - @ViewBag.Name</h2>
+    @using (Html.BeginForm("AddClientToMovie", "Films"))
+    {
+        @Html.HiddenFor(m => m.FilmId)
 
-@using (Html.BeginForm("AddClientToMovie", "Films"))
-{
-    @Html.HiddenFor(m => m.FilmId)
+        <div class="form-group mt-5 offset-sm-4 pl-4">
+            @Html.DropDownListFor(m => m.ClientId, new SelectList(Model.Clients, "ClientId", "Name"), new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-success btn-block w-25 offset-sm-4 mt-3">Add</button>
+    }
 
-<div class="form-group">
-    @Html.DropDownListFor(m => m.ClientId, new SelectList(Model.Clients, "ClientId", "Name"), new { @class = "form-control" })
-</div>
-    <button type="submit" class="btn btn-success">Add</button>
-}
+    </div>
