@@ -19,12 +19,7 @@
                         {
 
             <td class="col-md-4 mb-4">
-                @if (User.IsInRole("Admin") || User.IsInRole("User"))
-    {
-            @Html.ActionLink(item.Name, "DetailsRatingMovies", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:rgb(3,174,218);font-style:italic;" })
-}
 
-                <br>
                 <img src="@item.Url" width="200px;" />
                 <br>
                 @{
@@ -61,9 +56,15 @@ if (item.Rating >= 100)
 }
                 }
 
-                <h5 class="text-white font-italic mb-0">@item.Name</h5>                
+
+                @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                {
+            @Html.ActionLink(item.Name, "DetailsRatingMovies", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:rgb(3,174,218);font-style:italic;" })
+                }
+                else
+                {  <h5 class="text-white font-italic mb-0">@item.Name</h5>}
                 <img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-04/enhanced/webdr04/22/7/anigif_original-9632-1398165072-4.gif" width="210px" height="25px" style="border-radius:20%" />
-                
+
             </td>
 
                         }

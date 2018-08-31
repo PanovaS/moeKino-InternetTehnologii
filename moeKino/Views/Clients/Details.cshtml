@@ -4,37 +4,37 @@
     ViewBag.Title = "Details";
 }
 
-<h2 style="color:rgb(3,174,218)">Details about the client</h2>
+<div style="min-height:462px">
+    <h2 style="color:#f1d8b3;" class="text-center">Details about the client</h2>
 
-<div style="color:rgb(3,174,218);font-size:15px;">
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div style="color:#f1d8b3;font-size:15px;" class="mt-5 text-center">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            <dd class="text-white">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+            <dd class="text-white">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dt>List of movies: </dt>
-        <dd>
+            <dt>List of movies: </dt>
+            <dd class="text-white">
+                None
+            </dd>
 
-        </dd>
+        </dl>
+    </div>
+    <p class="text-center mt-5">
+        <img src="~/Content/back.png" width="35px;" /> @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-default" })
+   
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }, new { @class = "btn btn-warning" })
+    </p>
 
-    </dl>
 </div>
-<p class="btn btn-default">
-    <img src="~/Content/back.png" width="35px;" /> @Html.ActionLink("Back to List", "Index")
-</p>
-<p class="btn btn-warning">
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) 
-</p>
-

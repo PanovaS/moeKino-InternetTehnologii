@@ -4,103 +4,92 @@
     ViewBag.Title = "Details";
 }
 
-<h2 style="color:white;" class="text-center">@Model.Name</h2>
+<h2 style="color:#f1d8b3;" class="text-center mb-5"><u>@Model.Name</u></h2>
+<div class="row">
 
-<table class="w-75" style="margin-left: 20%;color:#f1d8b3;">
-    <tr>
-        <td style="width:600px;">
+    <div class="col-5">
+        <table class="w-75 text-justify" style="margin-left: 25%;color:#f1d8b3;">
+            <tr>
+                <td style="width:600px;">
+
+                    <dl class="dl-horizontal">
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Genre)
+                        </dt>
+
+                        <dd class="text-white">
+                            @Html.DisplayFor(model => model.Genre)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Director)
+                        </dt>
+
+                        <dd class="text-white">
+                            @Html.DisplayFor(model => model.Director)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ReleaseDate)
+                        </dt>
+
+                        <dd class="text-white">
+                            @Html.DisplayFor(model => model.ReleaseDate)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ShortDescription)
+                        </dt>
+
+                        <dd class="text-white">
+                            @Html.DisplayFor(model => model.ShortDescription)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Stars)
+                        </dt>
+
+                        <dd class="text-white">
+                            @Html.DisplayFor(model => model.Stars)
+                        </dd>
+
+                    </dl>
+                </td>
+        </table>
+    </div>
+    <div class="col-2">
+        <img class="s3" src="@Url.Content(@Model.Url)" width="200px" />
         
-            <dl class="dl-horizontal">
-                
+    </div>
+    <div class="col-4 mt-3" style="margin-left:5%;color:#f1d8b3;">
+        @{
+            if (Model.clients.Capacity != 0)
+            {
+                <h2><img src="http://beta1.logisoft-cy.net/wp-content/uploads/2014/09/group1.png" width="50px">  Clients:</h2>
+                foreach (moeKino.Models.Client c in Model.clients)
+                {
+                    <ul>
+                        <li>
+                            <a href="/Clients/Details/@c.ClientId">@c.Name</a>
+                        </li>
+                    </ul>
 
-               
-
-                <dt>
-
-                </dt>
-
-                <dd class="s3">
-
-                    <img class="s3" src="@Url.Content(@Model.Url)" width="200px" />
-                    <br>
-                   
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Genre)
-                </dt>
-
-                <dd class="text-white">
-                    @Html.DisplayFor(model => model.Genre)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Director)
-                </dt>
-
-                <dd class="text-white">
-                    @Html.DisplayFor(model => model.Director)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.ReleaseDate)
-                </dt>
-
-                <dd class="text-white">
-                    @Html.DisplayFor(model => model.ReleaseDate)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.ShortDescription)
-                </dt>
-
-                <dd class="text-white">
-                    @Html.DisplayFor(model => model.ShortDescription)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Stars)
-                </dt>
-
-                <dd class="text-white">
-                    @Html.DisplayFor(model => model.Stars)
-                </dd>
-
-            </dl>
-        </td>
-        <td>
-            <div style="padding-top:50px;">
-                @{
-                    if (Model.clients.Capacity != 0)
-                    {
-                        <h2><img src="http://beta1.logisoft-cy.net/wp-content/uploads/2014/09/group1.png" width="50px">  Clients:</h2>
-                        foreach (moeKino.Models.Client c in Model.clients)
-                        {
-                            <ul>
-                                <li>
-                                    <a href="/Clients/Details/@c.ClientId">@c.Name</a>
-                                </li>
-                            </ul>
-
-                        }
-                    }
-                    else
-                    {
-                        <h3><img src="http://beta1.logisoft-cy.net/wp-content/uploads/2014/09/group1.png" width="50px">  No clients</h3>
-                    }
                 }
-            </div>
+            }
+            else
+            {
+                <h3><img src="http://beta1.logisoft-cy.net/wp-content/uploads/2014/09/group1.png" width="50px">  No clients</h3>
+            }
+        }
+    </div>
 
 
-        </td>
-    </tr>
-</table>
-    
 
+
+</div>
 <p style="padding-left:10%">
-  <a href="/Films/Index"> <img src="https://cdn2.iconfinder.com/data/icons/office-elements/512/operation-back.png" width="60px;"> </a>
-</p>
-<p style="padding-left:10%">
+    <a href="/Films/Index"> <img src="https://cdn2.iconfinder.com/data/icons/office-elements/512/operation-back.png" width="60px;"> </a>
 
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn", @style = "background-color:rgb(3,174,218);color:white;" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn ml-2", @style = "background-color:rgb(3,174,218);color:white;" })
 </p>
