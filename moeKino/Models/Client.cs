@@ -13,6 +13,7 @@ namespace moeKino.Models
         [Required]
         public string Name { get; set; }
         public string Email { get; set; }
+        public int Points { get; set; }
 
         public virtual List<Film> movies { get; set; }
         public Client() {

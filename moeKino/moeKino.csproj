@@ -249,6 +249,14 @@
     <Compile Include="Migrations\201808241658103_deletedRoleVisitor.Designer.cs">
       <DependentUpon>201808241658103_deletedRoleVisitor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809022320462_newDatabase.cs" />
+    <Compile Include="Migrations\201809022320462_newDatabase.Designer.cs">
+      <DependentUpon>201809022320462_newDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809022334209_addedPoints.cs" />
+    <Compile Include="Migrations\201809022334209_addedPoints.Designer.cs">
+      <DependentUpon>201809022334209_addedPoints.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddToCard.cs" />
@@ -652,6 +660,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808241658103_deletedRoleVisitor.resx">
       <DependentUpon>201808241658103_deletedRoleVisitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809022320462_newDatabase.resx">
+      <DependentUpon>201809022320462_newDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809022334209_addedPoints.resx">
+      <DependentUpon>201809022334209_addedPoints.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

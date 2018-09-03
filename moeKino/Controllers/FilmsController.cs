@@ -60,6 +60,7 @@ namespace moeKino.Controllers
              var film = db.Films.Find(model.FilmId);
              var client = db.Clients.Find(model.ClientId);
              film.clients.Add(client);
+             client.Points += 10;
              db.SaveChanges();
              return View("Index", db.Films.ToList());
          }

@@ -651,3 +651,5 @@ C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino
 C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.dll
 C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.pdb
 C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.deletedRoleVisitor.resources
+C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.newDatabase.resources
+C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.addedPoints.resources
