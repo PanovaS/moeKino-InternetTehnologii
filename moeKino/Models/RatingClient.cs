@@ -12,6 +12,10 @@ namespace moeKino.Models
         public int FilmId { get; set; }
         public List<Client> Clients { get; set; }
 
+        public string Date { get; set; }
+        public string Time { get; set; }
+        public int NumberTickets { get;  set; }
+
         public RatingClient() {
             Clients = new List<Client>();
         }

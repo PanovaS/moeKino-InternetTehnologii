@@ -653,3 +653,6 @@ C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino
 C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.deletedRoleVisitor.resources
 C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.newDatabase.resources
 C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.addedPoints.resources
+C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.addedTimeInModelFilm.resources
+C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.addedTicketsInRatingClientModel.resources
+C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.newModelTickets.resources

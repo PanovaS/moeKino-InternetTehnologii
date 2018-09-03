@@ -1,0 +1,67 @@
+﻿@model IEnumerable<moeKino.Models.Ticket>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="min-height:462px">
+
+    <h2 style="color:#f1d8b3" class="text-center mb-5">Your movie tickets</h2>
+
+    <table class="table table-striped table-light text-center w-75 border-dark" style="margin-left:12%">
+        <thead>
+            <tr class="text-dark" style="font-size:22px">
+                <th class="text-danger">
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th class="text-danger">
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th class="text-danger">
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                <th class="text-danger">
+                    @Html.DisplayNameFor(model => model.NumberTickets)
+                </th>
+                <th class="text-danger">
+                    @Html.DisplayNameFor(model => model.Movie)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody class="text-dark">
+
+            @{ int sum = 0;
+                foreach (var item in Model)
+                {
+                    if (ViewBag.ClientId == item.ClientId)
+                    {
+                        sum++;
+                <tr class="text-center">
+                    <td style="font-size:16px;">
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td style="font-size:16px;">
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+
+                    <td style="font-size:16px;">
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td style="font-size:16px;">
+                        @Html.DisplayFor(modelItem => item.NumberTickets)
+                    </td>
+                    <td style="font-size:16px;">
+                        @Html.DisplayFor(modelItem => item.Movie)
+                    </td>
+
+                </tr>
+                    }
+                }
+                if (sum==0) {
+                    <tr><td colspan="5" class="font-weight-bold">You haven't bought tickets yet!</td></tr>
+                }
+            }
+    
+        </tbody>
+     </table>
+ </div>

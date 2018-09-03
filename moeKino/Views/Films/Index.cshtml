@@ -7,17 +7,17 @@
 <table style="margin-left:15%;width:85%">
     <tr>
         <td>
-                <img src="https://media.giphy.com/media/8754ImlPF86US07FUi/source.gif" width="200px;" class="text-center">
-        </td>    
+            <img src="https://media.giphy.com/media/8754ImlPF86US07FUi/source.gif" width="200px;" class="text-center">
+        </td>
         <td>
 
             @if (User.IsInRole("Admin"))
-        {
-            <div class="btn btn-default" style="margin-left:10%;">
-                <img src="~/Content/addMovie.png" width="40px;" />
-                @Html.ActionLink("Create New", "Create")
-            </div>
-    }
+            {
+                <div class="btn btn-default" style="margin-left:10%;">
+                    <img src="~/Content/addMovie.png" width="40px;" />
+                    @Html.ActionLink("Create New", "Create")
+                </div>
+            }
 
         </td>
     </tr>
@@ -39,77 +39,78 @@
         <tbody class="text-dark">
             @foreach (var item in Model)
             {
-            <tr class="text-center">
-                <td style="font-size:18px;">
-                    <h4 class="font-weight-bold mb-5">@Html.DisplayFor(modelItem => item.Name)</h4>  
-                
-                                @{
+                <tr class="text-center">
+                    <td style="font-size:18px;">
+                        <h4 class="font-weight-bold mb-5">@Html.DisplayFor(modelItem => item.Name)</h4>
 
-                                    if (item.Rating < 20)
-                                    {
-                      <h5 class="text-warning">Сѐ уште нема рејтинг</h5>
+                        @{
 
-                                    }
-                                    else
-                                    {
+                            if (item.Rating < 20)
+                            {
+                                <h5 class="text-warning">Сѐ уште нема рејтинг</h5>
 
-                                        if (item.Rating >= 20)
-                                        {
+                            }
+                            else
+                            {
 
-                             <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                                        }
-                                        if (item.Rating >= 40)
-                                        {
-                                            <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                                        }
-                                        if (item.Rating >= 60)
-                                        {
-                                            <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                                        }
-                                        if (item.Rating >= 80)
-                                        {
-                                            <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                                        }
-                                        if (item.Rating >= 100)
-                                        {
-                                            <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                                        }
-                    <br>
-                                    }
-             }
+                                if (item.Rating >= 20)
+                                {
 
-                </td>
-                <td>
-               @{ if (item.Rating < 20){
+                                    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                                }
+                                if (item.Rating >= 40)
+                                {
+                                    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                                }
+                                if (item.Rating >= 60)
+                                {
+                                    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                                }
+                                if (item.Rating >= 80)
+                                {
+                                    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                                }
+                                if (item.Rating >= 100)
+                                {
+                                    <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                                }
+                                <br>
+                            }
+                        }
 
-                     <h5 class="text-warning">0</h5>
-                }
-                else
-                {
-                    double a = item.Rating / 10.00;
-                   <h5 class="text-warning">@a.ToString("#.##")</h5>
-                }
+                    </td>
+                    <td>
+                        @{ if (item.Rating < 20)
+                            {
+
+                                <h5 class="text-warning">0</h5>
+                            }
+                            else
+                            {
+                                double a = item.Rating / 10.00;
+                                <h5 class="text-warning">@a.ToString("#.##")</h5>
+                            }
 
 
-                    }
+                        }
 
-                </td>
-                <td>
-                    <img src="@item.Url" width="160px" height="200px" />
-                   
-                </td>
-             
-             <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning mb-2 pl-4 pr-4" })
-                 <br />
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info mb-2" })
-                 <br />
+                    </td>
+                    <td>
+                        <img src="@item.Url" width="160px" height="200px" />
 
-                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })*@
-                    <button data-movie-id="@item.Id" class="btn btn-danger js-delete">Delete</button>
+                    </td>
 
-                </td>
-            </tr>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning mb-2 pl-4 pr-4" })
+                        <br />
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info mb-2" })
+                        <br />
+
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })*@
+                        <button data-movie-id="@item.Id" class="btn btn-danger js-delete">Delete</button>
+
+                    </td>
+                </tr>
 
             }
         </tbody>
@@ -118,71 +119,71 @@
 }
 else
 {
-   <table style="margin-left:12%" class="w-75">
+    <table style="margin-left:12%" class="w-75">
 
-       <tr class="row">
-           @foreach (var item in Model)
-      {
-           <td class="col-4 text-center mb-4">
-               <br>
-               <img src="@item.Url" width="200px" height="300px" />
+        <tr class="row">
+            @foreach (var item in Model)
+            {
+                <td class="col-4 text-center mb-4">
+                    <br>
+                    <img src="@item.Url" width="200px" height="300px" />
 
 
-               @if (User.IsInRole("User"))
-    {
-           @Html.ActionLink(item.Name, "Details", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:rgb(3,174,218)" })
-           <div>
-               <img src="https://www.freedomis.co.uk/ekmps/shops/freedomis/resources/Design/075688-3d-glossy-blue-orb-icon-business-basket.png" width="50px">
-               @Html.ActionLink("Buy ticket", "AddClientToMovie", new { id = item.Id })
-           </div>
-}
-else
-{
-           <h5 style="font-size:20px;" class="text-white font-weight-bold">
-               @Html.DisplayFor(modelItem => item.Name)
-           </h5>
-}
-               @{
-                   if (item.Rating < 20)
-                   {
-           <h5 class="text-warning mb-2 mt-1">Сѐ уште нема рејтинг</h5>
-                   }
-                   else
-                   {
-
-                       if (item.Rating >= 20)
-                       {
-                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                       }
-
-                       if (item.Rating >= 40)
-                       {
-                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                       }
-                       if (item.Rating >= 60)
-                       {
-                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                       }
-                       if (item.Rating >= 80)
-                       {
-                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                       }
-                       if (item.Rating >= 100)
-                       {
-                         <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                    @if (User.IsInRole("User"))
+                    {
+                        @Html.ActionLink(item.Name, "Details", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:rgb(3,174,218)" })
+                        <div>
+                            <img src="https://www.freedomis.co.uk/ekmps/shops/freedomis/resources/Design/075688-3d-glossy-blue-orb-icon-business-basket.png" width="50px">
+                            @Html.ActionLink("Buy ticket", "AddClientToMovie", new { id = item.Id})
+                        </div>
+                    }
+                    else
+                    {
+                        <h5 style="font-size:20px;" class="text-white font-weight-bold">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </h5>
+                    }
+                    @{
+                        if (item.Rating < 20)
+                        {
+                            <h5 class="text-warning mb-2 mt-1">Сѐ уште нема рејтинг</h5>
                         }
+                        else
+                        {
 
-                       <br />
-                     }
-                   }
-               <img src="~/Content/hr.png" width="260px" height="30px" style="border-bottom-left-radius: 50% 40%;border-bottom-right-radius: 50% 40%;" />
-           </td>
-  
-   
+                            if (item.Rating >= 20)
+                            {
+                                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                            }
+
+                            if (item.Rating >= 40)
+                            {
+                                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                            }
+                            if (item.Rating >= 60)
+                            {
+                                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                            }
+                            if (item.Rating >= 80)
+                            {
+                                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                            }
+                            if (item.Rating >= 100)
+                            {
+                                <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                            }
+
+                            <br />
+                        }
+                    }
+                    <img src="~/Content/hr.png" width="260px" height="30px" style="border-bottom-left-radius: 50% 40%;border-bottom-right-radius: 50% 40%;" />
+                </td>
+
+
+            }
+    </table>
 }
-   </table>
-}
-    
+
 @section Scripts{
     <script>
         $(document).ready(function () {

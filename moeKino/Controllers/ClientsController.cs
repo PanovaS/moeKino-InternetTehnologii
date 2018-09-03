@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using moeKino.Models;
+using Microsoft.AspNet.Identity;
 
 namespace moeKino.Controllers
 {
@@ -123,6 +124,19 @@ namespace moeKino.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Tickets()
+        {
+            foreach ( var client in db.Clients) {
+                if (client.Name == User.Identity.Name) {
+                    ViewBag.ClientId = client.ClientId;
+                    break;
+                }
+            } 
+           
+            return View(db.Tickets.ToList());
+
         }
     }
 }

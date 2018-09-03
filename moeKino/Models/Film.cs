@@ -23,6 +23,7 @@ namespace moeKino.Models
         public int Rating { set; get; }
         [Display(Name = "Visitors")]
         public int Audience { set; get; }
+        public string Time { set; get; }
         public virtual List<Client> clients { get; set; }
 
         public Film() {

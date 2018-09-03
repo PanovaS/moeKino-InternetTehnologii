@@ -26,7 +26,7 @@ namespace moeKino.Controllers
             return View();
         }
 
-        public ActionResult RatingMovies()
+        public ActionResult BestMovies()
         {
 
             foreach (var film in db.Films.ToList())
@@ -35,10 +35,6 @@ namespace moeKino.Controllers
             }
             return View(db.Films.ToList());
         }
-
-
-
-
 
 
 
@@ -52,6 +48,7 @@ namespace moeKino.Controllers
              model.Clients = db.Clients.ToList();
              var film = db.Films.Find(id);
              ViewBag.Name = film.Name;
+             ViewBag.Time = film.Time;
              return View(model);
          }
          [HttpPost]
@@ -60,8 +57,14 @@ namespace moeKino.Controllers
              var film = db.Films.Find(model.FilmId);
              var client = db.Clients.Find(model.ClientId);
              film.clients.Add(client);
-             client.Points += 10;
-             db.SaveChanges();
+             client.Points += (10*model.NumberTickets);
+             film.Audience += model.NumberTickets;
+
+            Ticket ticket = new Ticket(model.ClientId,model.Date,model.Time,model.NumberTickets,film.Name);
+            db.Tickets.Add(ticket);
+
+
+            db.SaveChanges();
              return View("Index", db.Films.ToList());
          }
 

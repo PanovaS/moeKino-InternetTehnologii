@@ -33,5 +33,8 @@ namespace moeKino.Models
         public System.Data.Entity.DbSet<moeKino.Models.Film> Films { get; set; }
 
         public System.Data.Entity.DbSet<moeKino.Models.Client> Clients { get; set; }
+
+        public System.Data.Entity.DbSet<moeKino.Models.Ticket> Tickets { get; set; }
+
     }
 }

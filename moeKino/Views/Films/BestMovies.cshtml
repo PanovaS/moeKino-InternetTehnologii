@@ -1,0 +1,123 @@
+﻿@model IEnumerable<moeKino.Models.Film>
+@{
+    ViewBag.Title = "BestMovies";
+}
+
+
+<div class="mb-4" style="margin-left:39%;">
+    <h2 class="pl-3 text-uppercase text-white">Best movies by</h2> 
+    <button class="btn btn-info active text-uppercase" number="1">rating</button>
+
+    <button class="btn btn-info text-uppercase" number="2">number of visitors</button>
+</div>
+<div class="text-center d-block" id="1" style="color:#f1d8b3">
+    <img src="https://steemitimages.com/0x0/https://steemitimages.com/DQmP3chDXaZe2Zhw4GM8RygKNRMydCEQ3Kq6iqrgxfsrLGB/fivestar.gif" width="100px" />
+
+    <br>
+
+    <table style="margin-left:12%" class="w-75">
+
+        <tr class="row">
+            @{
+
+                foreach (var item in Model)
+                {
+
+                    if (item.Rating >= 30)
+                    {
+
+                        <td class="col-md-4 mb-4">
+
+                            <img src="@item.Url" width="200px;" />
+                            <br>
+                            @{
+
+                                if (item.Rating < 20)
+                                {
+                                    <h5 class="text-warning mb-2 mt-1">Сѐ уште нема рејтинг</h5>
+
+                                }
+                                else
+                                {
+
+                                    if (item.Rating >= 20)
+                                    {
+                                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                                    }
+                                    if (item.Rating >= 40)
+                                    {
+                                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                                    }
+                                    if (item.Rating >= 60)
+                                    {
+                                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                                    }
+                                    if (item.Rating >= 80)
+                                    {
+                                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                                    }
+                                    if (item.Rating >= 100)
+                                    {
+                                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
+                                    }
+                                    <br>
+                                }
+                            }
+
+
+                            @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                            {
+                                @Html.ActionLink(item.Name, "DetailsRatingMovies", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:rgb(3,174,218);font-style:italic;" })
+                            }
+                            else
+                            { <h5 class="text-white font-italic mb-0">@item.Name</h5>}
+                            <img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-04/enhanced/webdr04/22/7/anigif_original-9632-1398165072-4.gif" width="210px" height="25px" style="border-radius:20%" />
+
+                        </td>
+
+                    }
+                }
+
+            }
+    </table>
+</div>
+<div class="text-center d-none mt-5" id="2" style="color:#f1d8b3">
+
+    <table style="margin-left:12%" class="w-75">
+
+        <tr class="row">
+            @{
+
+                foreach (var item in Model)
+                {
+
+                    if (item.Audience != 0)
+                    {
+                        <td class="col-md-4 mb-5">
+
+                            <img src="@item.Url" width="200px" height="300px" />
+                            <br>
+                            <div>Visitors: @item.Audience</div>
+                            <img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-04/enhanced/webdr04/22/7/anigif_original-9632-1398165072-4.gif" width="210px" height="25px" style="border-radius:20%" />
+                        </td>
+                    }
+                }
+            }
+
+
+    </table>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {   
+            $(".btn").on("click", function () {
+                var number = $(this).attr("number"); //2
+                $(".btn").removeClass("active");
+                $(this).addClass("active");
+                $(".text-center").removeClass("d-block").addClass("d-none");
+                $("#" + number).removeClass("d-none").addClass("d-block");
+            });
+
+        });
+    </script>
+}

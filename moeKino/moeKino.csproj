@@ -257,6 +257,18 @@
     <Compile Include="Migrations\201809022334209_addedPoints.Designer.cs">
       <DependentUpon>201809022334209_addedPoints.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809031752424_addedTimeInModelFilm.cs" />
+    <Compile Include="Migrations\201809031752424_addedTimeInModelFilm.Designer.cs">
+      <DependentUpon>201809031752424_addedTimeInModelFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809031921340_addedTicketsInRatingClientModel.cs" />
+    <Compile Include="Migrations\201809031921340_addedTicketsInRatingClientModel.Designer.cs">
+      <DependentUpon>201809031921340_addedTicketsInRatingClientModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809032030241_newModelTickets.cs" />
+    <Compile Include="Migrations\201809032030241_newModelTickets.Designer.cs">
+      <DependentUpon>201809032030241_newModelTickets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddToCard.cs" />
@@ -266,6 +278,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RatingClient.cs" />
+    <Compile Include="Models\Ticket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -611,8 +624,9 @@
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Films\AddClientToMovie.cshtml" />
     <Content Include="Views\Films\Soon.cshtml" />
-    <Content Include="Views\Films\RatingMovies.cshtml" />
+    <Content Include="Views\Films\BestMovies.cshtml" />
     <Content Include="Views\Films\DetailsRatingMovies.cshtml" />
+    <Content Include="Views\Clients\Tickets.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -666,6 +680,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809022334209_addedPoints.resx">
       <DependentUpon>201809022334209_addedPoints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809031752424_addedTimeInModelFilm.resx">
+      <DependentUpon>201809031752424_addedTimeInModelFilm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809031921340_addedTicketsInRatingClientModel.resx">
+      <DependentUpon>201809031921340_addedTicketsInRatingClientModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809032030241_newModelTickets.resx">
+      <DependentUpon>201809032030241_newModelTickets.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
