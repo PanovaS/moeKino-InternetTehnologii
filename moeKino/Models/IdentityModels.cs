@@ -24,17 +24,20 @@ namespace moeKino.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
         public static ApplicationDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new ApplicationDbContext();           
         }
+    
 
         public System.Data.Entity.DbSet<moeKino.Models.Film> Films { get; set; }
 
         public System.Data.Entity.DbSet<moeKino.Models.Client> Clients { get; set; }
 
         public System.Data.Entity.DbSet<moeKino.Models.Ticket> Tickets { get; set; }
+
+        public System.Data.Entity.DbSet<moeKino.Models.ArchivedFilm> ArchivedFilms  { get; set; }
+
 
     }
 }

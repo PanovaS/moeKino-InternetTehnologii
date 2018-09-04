@@ -95,6 +95,9 @@ namespace moeKino.Controllers
                 return NotFound();
             }
 
+           
+            var date = DateTime.Now.ToString("dd.MM.yyyy");
+            db.ArchivedFilms.Add(new ArchivedFilm(film.Name, film.Url, film.Genre, film.Director, film.ReleaseDate, date, film.Audience));
             db.Films.Remove(film);
             db.SaveChanges();
 

@@ -25,7 +25,10 @@ namespace moeKino.Controllers
 
             return View();
         }
-
+        public ActionResult ArchivedMovies()
+        {
+            return View(db.ArchivedFilms.ToList());
+        }
         public ActionResult BestMovies()
         {
 
@@ -184,6 +187,8 @@ namespace moeKino.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+       
+
 
         protected override void Dispose(bool disposing)
         {

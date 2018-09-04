@@ -656,3 +656,4 @@ C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino
 C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.addedTimeInModelFilm.resources
 C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.addedTicketsInRatingClientModel.resources
 C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.newModelTickets.resources
+C:\Users\Aleksandar\Desktop\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.ArchivedFilmModel.resources

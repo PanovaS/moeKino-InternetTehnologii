@@ -269,10 +269,15 @@
     <Compile Include="Migrations\201809032030241_newModelTickets.Designer.cs">
       <DependentUpon>201809032030241_newModelTickets.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809041940526_ArchivedFilmModel.cs" />
+    <Compile Include="Migrations\201809041940526_ArchivedFilmModel.Designer.cs">
+      <DependentUpon>201809041940526_ArchivedFilmModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddToCard.cs" />
     <Compile Include="Models\AddToRoleModel.cs" />
+    <Compile Include="Models\ArchivedFilm.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -627,6 +632,7 @@
     <Content Include="Views\Films\BestMovies.cshtml" />
     <Content Include="Views\Films\DetailsRatingMovies.cshtml" />
     <Content Include="Views\Clients\Tickets.cshtml" />
+    <Content Include="Views\Films\ArchivedMovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -689,6 +695,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809032030241_newModelTickets.resx">
       <DependentUpon>201809032030241_newModelTickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809041940526_ArchivedFilmModel.resx">
+      <DependentUpon>201809041940526_ArchivedFilmModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
