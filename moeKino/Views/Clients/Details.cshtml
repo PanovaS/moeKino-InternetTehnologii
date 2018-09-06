@@ -58,8 +58,14 @@
         </dl>
     </div>
     <p class="text-center mt-4">
-        <img src="~/Content/back.png" width="35px;" /> @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-default" })
-   
+        @if (User.IsInRole("User"))
+        {
+            <a href="../../Films/Index"><img src="~/Content/back.png" width="35px;" /></a>
+        }
+        else
+        {
+            <img src="~/Content/back.png" width="35px;" />@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+        }
         @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }, new { @class = "btn btn-warning" })
     </p>
 

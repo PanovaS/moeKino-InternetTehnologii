@@ -295,6 +295,7 @@
     <Content Include="Content\6.jpg" />
     <Content Include="Content\addClient.png" />
     <Content Include="Content\addMovie.png" />
+    <Content Include="Content\adresa.png" />
     <Content Include="Content\back.png" />
     <Content Include="Content\background-menu.png" />
     <Content Include="Content\background-top.png" />
@@ -469,16 +470,19 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\email.png" />
     <Content Include="Content\footer-facebook.png" />
     <Content Include="Content\gmail.png" />
     <Content Include="Content\Home.png" />
     <Content Include="Content\hr.png" />
     <Content Include="Content\instagram.png" />
+    <Content Include="Content\kino.png" />
     <Content Include="Content\login.png" />
     <Content Include="Content\moeKino.png" />
     <Content Include="Content\pinterest.png" />
     <Content Include="Content\register.png" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\telefon.png" />
     <Content Include="Content\twiter.png" />
     <Content Include="Content\youtube.png" />
     <Content Include="favicon.ico" />
