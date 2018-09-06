@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using moeKino.Models;
+using Microsoft.AspNet.Identity;
 namespace moeKino.Controllers
 {
     public class FilmsController : Controller
@@ -38,8 +39,35 @@ namespace moeKino.Controllers
             }
             return View(db.Films.ToList());
         }
+        public ActionResult AcceptGift()
+        {
+            int id = 0;
+            foreach (var item in db.Clients)
+            {
 
+                if (item.Email == User.Identity.GetUserName())
+                {
+                    id = item.ClientId;
+                    break;
+                }
+            }
+            var najdiKlient = db.Clients.Find(id);
+            najdiKlient.Points = 0;
+            db.SaveChanges();
 
+            return RedirectToAction("Index", "Films");
+        }
+        public ActionResult Gift1() {
+            return View();
+        }
+        public ActionResult Gift2()
+        {
+            return View();
+        }
+        public ActionResult Gift3()
+        {
+            return View();
+        }
 
         //2 akcii za dodavanje klient na odreden film
         [HttpGet]
@@ -65,16 +93,24 @@ namespace moeKino.Controllers
 
             Ticket ticket = new Ticket(model.ClientId,model.Date,model.Time,model.NumberTickets,film.Name);
             db.Tickets.Add(ticket);
-
-
             db.SaveChanges();
-             return View("Index", db.Films.ToList());
+            if (client.Points >= 50 && client.Points < 100)
+            {
+                return RedirectToAction("Gift1", "Films");
+            }
+            else if (client.Points == 100)
+            {
+                return RedirectToAction("Gift2", "Films");
+
+            }
+            else if (client.Points > 100)
+            {
+                return RedirectToAction("Gift3", "Films");
+
+            }
+            return RedirectToAction("Index", "Films"); 
+            //return View("Index", db.Films.ToList());
          }
-
-
-     
-
-
 
         // GET: Films/Details/5
         public ActionResult Details(int? id)

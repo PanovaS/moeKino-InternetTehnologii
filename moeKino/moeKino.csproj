@@ -476,10 +476,12 @@
     <Content Include="Content\Home.png" />
     <Content Include="Content\hr.png" />
     <Content Include="Content\instagram.png" />
+    <Content Include="Content\karta.png" />
     <Content Include="Content\kino.png" />
     <Content Include="Content\login.png" />
     <Content Include="Content\moeKino.png" />
     <Content Include="Content\pinterest.png" />
+    <Content Include="Content\popcorn-png-3.png" />
     <Content Include="Content\register.png" />
     <Content Include="Content\style.css" />
     <Content Include="Content\telefon.png" />
@@ -637,6 +639,9 @@
     <Content Include="Views\Films\DetailsRatingMovies.cshtml" />
     <Content Include="Views\Clients\Tickets.cshtml" />
     <Content Include="Views\Films\ArchivedMovies.cshtml" />
+    <Content Include="Views\Films\Gift1.cshtml" />
+    <Content Include="Views\Films\Gift2.cshtml" />
+    <Content Include="Views\Films\Gift3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
