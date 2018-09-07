@@ -19,8 +19,11 @@
 
         <tr class="row">
             @{
+                var movies = (from m in Model
+                              orderby m.Rating descending
+                              select m).Take(10);
 
-                foreach (var item in Model)
+                foreach (var item in movies.ToList())
                 {
 
                     if (item.Rating >= 30)
@@ -83,12 +86,16 @@
 </div>
 <div class="text-center d-none mt-5" id="2" style="color:#f1d8b3">
 
+
     <table style="margin-left:12%" class="w-75">
 
         <tr class="row">
             @{
+                var films = (from m in Model
+                             orderby m.Audience descending
+                             select m).Take(10);
 
-                foreach (var item in Model)
+                foreach (var item in films.ToList())
                 {
 
                     if (item.Audience != 0)

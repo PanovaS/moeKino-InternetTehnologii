@@ -475,6 +475,7 @@
     <Content Include="Content\gmail.png" />
     <Content Include="Content\Home.png" />
     <Content Include="Content\hr.png" />
+    <Content Include="Content\image.png" />
     <Content Include="Content\instagram.png" />
     <Content Include="Content\karta.png" />
     <Content Include="Content\kino.png" />
@@ -483,6 +484,7 @@
     <Content Include="Content\pinterest.png" />
     <Content Include="Content\popcorn-png-3.png" />
     <Content Include="Content\register.png" />
+    <Content Include="Content\slika.png" />
     <Content Include="Content\style.css" />
     <Content Include="Content\telefon.png" />
     <Content Include="Content\twiter.png" />
