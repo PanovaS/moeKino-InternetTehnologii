@@ -19,7 +19,12 @@ namespace moeKino.Controllers
         // GET: Clients
         public ActionResult Index()
         {
-            return View(db.Clients.ToList());
+            if (User.IsInRole("Admin"))
+            {
+                return View(db.Clients.ToList());
+            }
+            else
+                return RedirectToAction("Index", "Films");
         }
 
         // GET: Clients/Details/5

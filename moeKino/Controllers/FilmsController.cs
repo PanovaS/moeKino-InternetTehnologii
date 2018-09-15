@@ -4,6 +4,9 @@ using System.Net;
 using System.Web.Mvc;
 using moeKino.Models;
 using Microsoft.AspNet.Identity;
+using System;
+using System.Web.Routing;
+
 namespace moeKino.Controllers
 {
     public class FilmsController : Controller
@@ -57,13 +60,16 @@ namespace moeKino.Controllers
 
             return RedirectToAction("Index", "Films");
         }
+        [NoDirectAccess]
         public ActionResult Gift1() {
             return View();
         }
+        [NoDirectAccess]
         public ActionResult Gift2()
         {
             return View();
         }
+        [NoDirectAccess]
         public ActionResult Gift3()
         {
             return View();
@@ -233,6 +239,18 @@ namespace moeKino.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+    }
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public class NoDirectAccessAttribute : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            if (filterContext.HttpContext.Request.UrlReferrer == null ||
+     filterContext.HttpContext.Request.Url.Host != filterContext.HttpContext.Request.UrlReferrer.Host)
+            {
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Films", action = "Index" }));
+            }
         }
     }
 }

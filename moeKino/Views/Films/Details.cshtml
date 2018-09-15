@@ -99,6 +99,8 @@
 </div>
 <p style="padding-left:10%">
     <a href="/Films/Index"> <img src="https://cdn2.iconfinder.com/data/icons/office-elements/512/operation-back.png" width="60px;"> </a>
-
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn ml-2", @style = "background-color:rgb(3,174,218);color:white;" })
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn ml-2", @style = "background-color:rgb(3,174,218);color:white;" })
+    }
 </p>
