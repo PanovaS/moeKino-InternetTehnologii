@@ -9753,3 +9753,11 @@ button.bg-dark:focus {
         }
     }
     /*# sourceMappingURL=bootstrap.css.map */
+.validation-summary-errors {
+    width:56%;
+    margin-left:-10%;
+}
+div.validation-summary-errors.text-danger > ul > li {
+    list-style-type: none;
+    text-align: center;
+}

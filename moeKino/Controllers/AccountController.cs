@@ -21,13 +21,12 @@ namespace moeKino.Controllers
         public AccountController()
         {
         }
-        [HttpGet]
+       /* [HttpGet]
         public ActionResult AddUserToRole()
         {
             var model = new AddToRoleModel();
             model.Roles.Add("Admin");
             model.Roles.Add("User");
-           
 
             return View(model);
         }
@@ -37,7 +36,7 @@ namespace moeKino.Controllers
             try
             {
                 var user = UserManager.FindByEmail(model.Email);
-                UserManager.AddToRole(user.Id, model.SelectedRole);
+                UserManager.AddToRole(user.Id, "User");
             }
             catch (Exception ex) {
                 return HttpNotFound();
@@ -45,7 +44,7 @@ namespace moeKino.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
+*/
 
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -181,9 +180,8 @@ namespace moeKino.Controllers
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-
+                {                        
+                    
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -194,7 +192,20 @@ namespace moeKino.Controllers
                     client.Email = model.Email;
                     db.Clients.Add(client);
                     db.SaveChanges();
-                    return RedirectToAction("AddUserToRole", "Account");
+
+                    try
+                    {
+                        var User = UserManager.FindByEmail(model.Email);
+                        UserManager.AddToRole(User.Id, "User");
+                        await SignInManager.SignInAsync(User, isPersistent: false, rememberBrowser: false);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    return RedirectToLocal(null);
                 }
                 AddErrors(result);
             }

@@ -43,14 +43,17 @@
                         <li class="nav-item pl-3">
                             @Html.ActionLink("ARCHIVED MOVIES", "ArchivedMovies", new { controller = "Films" }, null)
                         </li>
-                        @if (User.IsInRole("Admin"))
+                        @if (Request.IsAuthenticated)
                         {
+                            if (User.IsInRole("Admin"))
+                            {
                             <li class="nav-item pl-3">@Html.ActionLink("CLIENTS", "Index", new { controller = "Clients" }, null)</li>
-                        }
-                        @if (User.IsInRole("User"))
-                        {
+                             }
+                            if (User.IsInRole("User"))
+                            {
                             <li class="nav-item pl-3">@Html.ActionLink("MY TICKETS", "Tickets", new { controller = "Clients" }, null)</li>
-                        }
+                            }
+                         }
                         <li class="nav-item pl-3">
                             @Html.ActionLink("CONTACT", "Contact", "Home")
                         </li>
@@ -58,24 +61,23 @@
 
                 </div>
             </nav>
+
             @Html.Partial("_LoginPartial")
         </div>
     </div>
-        @RenderBody()
+    @RenderBody()
 
-    
-        <footer class="text-right" style="margin-right:5%">
 
-            <div>
-                <a href="https://www.facebook.com/" target="_blank"><img src="~/Content/footer-facebook.png" width="35px;" /></a>
-                <a href="https://www.instagram.com/" target="_blank"><img src="~/Content/instagram.png" width="35px;" /></a>
-                <a href="https://accounts.google.com/ServiceLogin/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=googlemail&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=AddSession" target="_blank"><img src="~/Content/gmail.png" width="35px;" /></a>
-                <a href="https://www.youtube.com/" target="_blank"><img src="~/Content/youtube.png" width="35px;" /></a>
-                <a href="https://twitter.com/?lang=en" target="_blank"><img src="~/Content/twiter.png" width="35px;" /></a>
-                <a href="https://www.pinterest.com/" target="_blank"><img src="~/Content/pinterest.png" width="35px;" /></a>
-            </div>
-        </footer>
- 
-   
-    </body>
-</html>
+    <footer class="text-right" style="margin-right:5%">
+
+        <div>
+            <a href="https://www.facebook.com/" target="_blank"><img src="~/Content/footer-facebook.png" width="35px;" /></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="~/Content/instagram.png" width="35px;" /></a>
+            <a href="https://accounts.google.com/ServiceLogin/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=googlemail&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=AddSession" target="_blank"><img src="~/Content/gmail.png" width="35px;" /></a>
+            <a href="https://www.youtube.com/" target="_blank"><img src="~/Content/youtube.png" width="35px;" /></a>
+            <a href="https://twitter.com/?lang=en" target="_blank"><img src="~/Content/twiter.png" width="35px;" /></a>
+            <a href="https://www.pinterest.com/" target="_blank"><img src="~/Content/pinterest.png" width="35px;" /></a>
+        </div>
+    </footer>   
+</body>
+</html >
