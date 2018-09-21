@@ -73,22 +73,22 @@
             if (ViewBag.ClientId == item.ClientId)
             {
                 sum++;
-        <div style="position: relative;text-align: center;" class="mb-5">
-            <img src="~/Content/movie-ticket.gif" class="ticket">
-            <div class="pb-3" style="position: absolute;top: 40%;left: 63%;transform: translate(-50%, -50%); min-width: 250px;text-align: left;">
-                Movie: @Html.DisplayFor(modelItem => item.Movie) <br />
-                Date: @Html.DisplayFor(modelItem => item.Date) <br />
-                Time:  @Html.DisplayFor(modelItem => item.Time) <br />
-                ID: @Html.DisplayFor(modelItem => item.Id) <br />
-                Number of tickets:  @Html.DisplayFor(modelItem => item.NumberTickets)
-            </div>
-        </div>             
+                <div style="position: relative;text-align: center;" class="mb-5">
+                    <img src="~/Content/movie-ticket.gif" class="ticket" width="940px;">
+                    <div class="pb-3" style="position: absolute;top: 40%;left: 63%;transform: translate(-50%, -50%); min-width: 250px;text-align: left;">
+                        Movie: @Html.DisplayFor(modelItem => item.Movie) <br />
+                        Date: @Html.DisplayFor(modelItem => item.Date) <br />
+                        Time:  @Html.DisplayFor(modelItem => item.Time) <br />
+                        ID: @Html.DisplayFor(modelItem => item.Id) <br />
+                        Number of tickets:  @Html.DisplayFor(modelItem => item.NumberTickets)
+                    </div>
+                </div>
 
             }
         }
         if (sum == 0)
         {
-            <div>You haven't bought tickets yet!</div>
+            <h5 style="color:#f1d8b3" class="text-center mb-5">You haven't bought tickets yet!</h5>
         }
     }
 

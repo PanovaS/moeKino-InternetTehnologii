@@ -941,3 +941,4 @@ C:\Users\Aleksandar\Desktop\it\moeKino-InternetTehnologii\moeKino\obj\Debug\moeK
 C:\Users\Aleksandar\Desktop\it\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.csproj.CoreCompileInputs.cache
 C:\Users\Aleksandar\Desktop\it\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.dll
 C:\Users\Aleksandar\Desktop\it\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.pdb
+C:\Users\User\Desktop\moeKino-IT\moeKino-InternetTehnologii\moeKino\obj\Debug\moeKino.Migrations.addedRequiredValidation.resources

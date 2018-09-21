@@ -273,6 +273,10 @@
     <Compile Include="Migrations\201809041940526_ArchivedFilmModel.Designer.cs">
       <DependentUpon>201809041940526_ArchivedFilmModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809211121473_addedRequiredValidation.cs" />
+    <Compile Include="Migrations\201809211121473_addedRequiredValidation.Designer.cs">
+      <DependentUpon>201809211121473_addedRequiredValidation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddToCard.cs" />
@@ -709,6 +713,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809041940526_ArchivedFilmModel.resx">
       <DependentUpon>201809041940526_ArchivedFilmModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809211121473_addedRequiredValidation.resx">
+      <DependentUpon>201809211121473_addedRequiredValidation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

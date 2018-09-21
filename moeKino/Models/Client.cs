@@ -12,6 +12,8 @@ namespace moeKino.Models
         [Display(Name="Name and Surname")]
         [Required]
         public string Name { get; set; }
+        [Required]
+        [EmailAddress(ErrorMessage = "The Email field is not a valid e-mail address.")]
         public string Email { get; set; }
         public int Points { get; set; }
 

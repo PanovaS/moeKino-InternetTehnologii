@@ -35,7 +35,7 @@ namespace moeKino.Controllers
         }
         public ActionResult BestMovies()
         {
-
+            
             foreach (var film in db.Films.ToList())
             {
                 film.Rating = (int)(((float)film.clients.Count() / (db.Users.Count() - 1)) * 100);
