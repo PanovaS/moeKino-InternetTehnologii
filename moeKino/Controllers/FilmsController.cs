@@ -16,10 +16,13 @@ namespace moeKino.Controllers
         // GET: Films
         public ActionResult Index()
         {
-
+            int totalClients = 0;
+            foreach (var film in db.Films.ToList()) {
+                totalClients += film.clients.Count();
+            }
             foreach (var film in db.Films.ToList())
             {
-                film.Rating = (int)(((float)film.clients.Count()/(db.Users.Count()-1))*100);
+                film.Rating = (int)(((float)film.clients.Count()/totalClients)*1000);
             }
            
             
@@ -35,10 +38,15 @@ namespace moeKino.Controllers
         }
         public ActionResult BestMovies()
         {
-            
+
+            int totalClients = 0;
             foreach (var film in db.Films.ToList())
             {
-                film.Rating = (int)(((float)film.clients.Count() / (db.Users.Count() - 1)) * 100);
+                totalClients += film.clients.Count();
+            }
+            foreach (var film in db.Films.ToList())
+            {
+                film.Rating = (int)(((float)film.clients.Count() / totalClients) * 1000);
             }
             return View(db.Films.ToList());
         }
