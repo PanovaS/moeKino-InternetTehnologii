@@ -6,6 +6,7 @@ using moeKino.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Web.Routing;
+using System.Collections.Generic;
 
 namespace moeKino.Controllers
 {
@@ -16,13 +17,22 @@ namespace moeKino.Controllers
         // GET: Films
         public ActionResult Index()
         {
-            int totalClients = 0;
-            foreach (var film in db.Films.ToList()) {
-                totalClients += film.clients.Count();
-            }
+            
             foreach (var film in db.Films.ToList())
             {
-                film.Rating = (int)(((float)film.clients.Count()/totalClients)*1000);
+                var ratings = db.MovieRatings.Where(d => d.movieId.Equals(film.Id)).ToList();
+                if (ratings.Count() > 0)
+                {
+                    var ratingSum = ratings.Sum(d => d.rating);
+                    var ratingCount = ratings.Count();
+                    film.Rating = Convert.ToDouble(ratingSum) / ratingCount;
+                }
+                else
+                {
+                    film.Rating = 0;
+                }
+
+                
             }
            
             
@@ -39,16 +49,21 @@ namespace moeKino.Controllers
         public ActionResult BestMovies()
         {
 
-            int totalClients = 0;
             foreach (var film in db.Films.ToList())
             {
-                totalClients += film.clients.Count();
+                var ratings = db.MovieRatings.Where(d => d.movieId.Equals(film.Id)).ToList();
+                if (ratings.Count() > 0)
+                {
+                    var ratingSum = ratings.Sum(d => d.rating);
+                    var ratingCount = ratings.Count();
+                    film.Rating = Convert.ToDouble(ratingSum) / ratingCount;
+                }
+                else
+                {
+                    film.Rating = 0;
+                }
             }
-            foreach (var film in db.Films.ToList())
-            {
-                film.Rating = (int)(((float)film.clients.Count() / totalClients) * 1000);
-            }
-            return View(db.Films.ToList());
+                return View(db.Films.ToList());
         }
         public ActionResult AcceptGift()
         {
@@ -129,7 +144,7 @@ namespace moeKino.Controllers
         // GET: Films/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -137,23 +152,38 @@ namespace moeKino.Controllers
             if (film == null)
             {
                 return HttpNotFound();
+            }
+            if (User.IsInRole("User")) {
+                Client client=db.Clients.Where(d => d.Name == User.Identity.Name).First();
+                ViewBag.Id = client.ClientId;
             }
             return View(film);
         }
 
-        public ActionResult DetailsRatingMovies(int? id)
+        [HttpPost]
+        public ActionResult Details(string userRate,string id, string clientId)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Film film = db.Films.Find(id);
-            if (film == null)
-            {
-                return HttpNotFound();
-            }
-            return View(film);
+            int userId = Convert.ToInt32(clientId);
+            int movieId = Convert.ToInt32(id);
+            Film film =db.Films.Find(movieId);
+           
+              List<MovieRatings> ratings = db.MovieRatings.Where(d => d.movieId.Equals(film.Id)).ToList();
+              int num=ratings.FindAll(r => r.clientId == userId).Count();
+                if (num == 0)
+                {
+                    MovieRatings rating = new MovieRatings(movieId, Convert.ToInt32(userRate), userId);
+                    db.MovieRatings.Add(rating);
+                    db.SaveChanges();
+                    return Json(new { success = true, responseText = "Thank you for rating this movie!" }, JsonRequestBehavior.AllowGet);
+
+                }
+                else {
+                    return Json(new { success = false, responseText = "You have already rated this movie!" }, JsonRequestBehavior.AllowGet);
+                }
+        
         }
+
+      
 
         // GET: Films/Create
         [Authorize(Roles = "Admin")]

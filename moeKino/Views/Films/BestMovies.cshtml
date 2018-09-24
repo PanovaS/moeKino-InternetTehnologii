@@ -6,13 +6,15 @@
 
 
 <div class="mb-4" style="margin-left:39%;">
-    <h2 class="pl-3 text-uppercase text-white">Best movies by</h2> 
+    <h2 class="pl-3 text-uppercase" style="color:#f1d8b3">Best movies by</h2> 
     <button class="btn btn-info active text-uppercase" number="1">rating</button>
 
     <button class="btn btn-info text-uppercase" number="2">number of visitors</button>
+    <span>
+        <img src="https://steemitimages.com/0x0/https://steemitimages.com/DQmP3chDXaZe2Zhw4GM8RygKNRMydCEQ3Kq6iqrgxfsrLGB/fivestar.gif" width="100px" style="margin-top:-5%"/>
+    </span>
 </div>
 <div class="text-center d-block" id="1" style="color:#f1d8b3">
-    <img src="https://steemitimages.com/0x0/https://steemitimages.com/DQmP3chDXaZe2Zhw4GM8RygKNRMydCEQ3Kq6iqrgxfsrLGB/fivestar.gif" width="100px" />
 
     <br>
 
@@ -22,59 +24,42 @@
             @{
                 var movies = (from m in Model
                               orderby m.Rating descending
-                              select m).Take(10);
+                              select m).Take(12);
 
                 foreach (var item in movies.ToList())
                 {
 
-                    if (item.Rating >= 30)
-                    {
+                        <td class="col-md-4 mb-5">
 
-                        <td class="col-md-4 mb-4">
-
-                            <img src="@item.Url" width="200px;" />
+                            <img src="@item.Url" width="200px;" height="300px" />
                             <br>
+                           
+                                @Html.ActionLink(item.Name, "Details", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:#eab8b1;font-weight:bold;text-decoration:underline" })
+                           
+                            <br />
                             @{
-
-                                if (item.Rating < 20)
+                                if (item.Rating == 0)
                                 {
-                                    <h5 class="text-warning mb-2 mt-1">There is still no rating</h5>
-
+                                                              
+                                <img src="~/Content/star-off.svg" class="mb-2"/> <br /> 
+                                <h5 style="color:#eab8b1">No rating yet</h5>
                                 }
-                                else
-                                {
-
-                                    if (item.Rating >= 20)
-                                    {
-                                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                                    }
-                                    if (item.Rating >= 40)
-                                    {
-                                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                                    }
-                                    if (item.Rating >= 60)
-                                    {
-                                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                                    }
-                                    if (item.Rating >= 80)
-                                    {
-                                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                                    }
-                                    if (item.Rating >= 100)
-                                    {
-                                        <img src="https://readtiger.com/img/wkp/en/StarIconGold.png" width="30px" height="30px" />
-                                    }
-                                    <br>
-                                }
-                            }
-
-
-                            @if (User.IsInRole("Admin") || User.IsInRole("User"))
-                            {
-                                @Html.ActionLink(item.Name, "DetailsRatingMovies", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:rgb(3,174,218);font-style:italic;" })
-                            }
                             else
-                            { <h5 class="text-white font-italic mb-0">@item.Name</h5>}
+                              {
+                                   
+                                for (int i = 1; i <= item.Rating; i++)
+                                {
+                                    <img src="~/Content/star-on.svg" class="mb-2"/>
+                                }
+                              <h5 style="color:#eab8b1">Rating: @item.Rating.ToString("#.##")  </h5> 
+                              }
+                                    
+                                   
+                                }
+                            
+
+
+                           
                             <img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-04/enhanced/webdr04/22/7/anigif_original-9632-1398165072-4.gif" width="210px" height="25px" style="border-radius:20%" />
 
                         </td>
@@ -82,7 +67,7 @@
                     }
                 }
 
-            }
+            
     </table>
 </div>
 <div class="text-center d-none mt-5" id="2" style="color:#f1d8b3">
@@ -94,20 +79,22 @@
             @{
                 var films = (from m in Model
                              orderby m.Audience descending
-                             select m).Take(10);
+                             select m).Take(12);
 
                 foreach (var item in films.ToList())
                 {
 
                     if (item.Audience != 0)
                     {
-                        <td class="col-md-4 mb-5">
+            <td class="col-md-4 mb-5">
 
-                            <img src="@item.Url" width="200px" height="300px" />
-                            <br>
-                            <div>Visitors: @item.Audience</div>
-                            <img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-04/enhanced/webdr04/22/7/anigif_original-9632-1398165072-4.gif" width="210px" height="25px" style="border-radius:20%" />
-                        </td>
+                <img src="@item.Url" width="200px" height="300px" />
+                <br>
+                @Html.ActionLink(item.Name, "Details", new { id = item.Id }, new { @class = "btn", @style = "font-size:20px;color:#eab8b1;font-weight:bold;text-decoration:underline" })
+                <br />
+                <div class="pt-2" style="font-size:20px"><b>Visitors: @item.Audience</b></div>
+                <img src="https://img.buzzfeed.com/buzzfeed-static/static/2014-04/enhanced/webdr04/22/7/anigif_original-9632-1398165072-4.gif" width="210px" height="25px" style="border-radius:20%" />
+            </td>
                     }
                 }
             }
@@ -119,7 +106,7 @@
     <script>
         $(document).ready(function () {   
             $(".btn").on("click", function () {
-                var number = $(this).attr("number"); //2
+                var number = $(this).attr("number"); 
                 $(".btn").removeClass("active");
                 $(this).addClass("active");
                 $(".text-center").removeClass("d-block").addClass("d-none");

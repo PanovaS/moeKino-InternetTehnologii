@@ -26,7 +26,7 @@ namespace moeKino.Models
         public string ShortDescription { set; get; }
         [Required]
         public string Stars { set; get; }
-        public int Rating { set; get; }
+        public double Rating { set; get; }
         [Display(Name = "Visitors")]
         public int Audience { set; get; }
         public string Time { set; get; }

@@ -277,6 +277,18 @@
     <Compile Include="Migrations\201809211121473_addedRequiredValidation.Designer.cs">
       <DependentUpon>201809211121473_addedRequiredValidation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809231550050_model MovieRatings.cs" />
+    <Compile Include="Migrations\201809231550050_model MovieRatings.Designer.cs">
+      <DependentUpon>201809231550050_model MovieRatings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809231654362_double, not int ratings.cs" />
+    <Compile Include="Migrations\201809231654362_double, not int ratings.Designer.cs">
+      <DependentUpon>201809231654362_double, not int ratings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809231925542_added clientId in MovieRatings model.cs" />
+    <Compile Include="Migrations\201809231925542_added clientId in MovieRatings model.Designer.cs">
+      <DependentUpon>201809231925542_added clientId in MovieRatings model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddToCard.cs" />
@@ -286,6 +298,7 @@
     <Compile Include="Models\Film.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MovieRatings.cs" />
     <Compile Include="Models\RatingClient.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -642,7 +655,6 @@
     <Content Include="Views\Films\AddClientToMovie.cshtml" />
     <Content Include="Views\Films\Soon.cshtml" />
     <Content Include="Views\Films\BestMovies.cshtml" />
-    <Content Include="Views\Films\DetailsRatingMovies.cshtml" />
     <Content Include="Views\Clients\Tickets.cshtml" />
     <Content Include="Views\Films\ArchivedMovies.cshtml" />
     <Content Include="Views\Films\Gift1.cshtml" />
@@ -716,6 +728,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809211121473_addedRequiredValidation.resx">
       <DependentUpon>201809211121473_addedRequiredValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809231550050_model MovieRatings.resx">
+      <DependentUpon>201809231550050_model MovieRatings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809231654362_double, not int ratings.resx">
+      <DependentUpon>201809231654362_double, not int ratings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809231925542_added clientId in MovieRatings model.resx">
+      <DependentUpon>201809231925542_added clientId in MovieRatings model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

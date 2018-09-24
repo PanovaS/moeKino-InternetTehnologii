@@ -38,6 +38,6 @@ namespace moeKino.Models
 
         public System.Data.Entity.DbSet<moeKino.Models.ArchivedFilm> ArchivedFilms  { get; set; }
 
-
+        public System.Data.Entity.DbSet<moeKino.Models.MovieRatings> MovieRatings { get; set; }
     }
 }
