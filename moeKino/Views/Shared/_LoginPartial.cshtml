@@ -7,13 +7,13 @@
                     @Html.AntiForgeryToken()
 
 
-                    <ul class="nav navbar-nav navbar-right text-left pt-2 text-white" style="margin-left:-4%;font-size:12px">
+                    <ul class="nav navbar-nav navbar-right text-left pt-2 text-white" style="margin-left:18%;font-size:12px">
             <li class="d-inline">
              Welcome, <br />@Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage",id= "anchor", style= "color:#f1d8b3" })
             
             </li>
             <li class="d-inline">
-               <button onclick="javascript:document.getElementById('logoutForm').submit()" class="btn btn-warning btn-sm text-center" id="logoff"style="border-color:black">Log off</button>
+               <button onclick="javascript:document.getElementById('logoutForm').submit()" class="btn btn-warning btn-sm text-center" id="logoff"style="border-color:black;margin-left:25%">Log off</button>
             </li>
         </ul>
     }

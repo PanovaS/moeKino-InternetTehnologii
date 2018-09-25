@@ -11,16 +11,22 @@
         </td>
         <td>
             @if (!User.IsInRole("Admin"))
-            {
-        <span class="font-weight-bold" style="color:#f1d8b3;font-size:18px;margin-left:20%">Price for each movie ticket: 250 MKD </span>
-            }
-           else
     {
-        <div class="btn btn-default" style="margin-left:10%;">
-            <img src="~/Content/addMovie.png" width="40px;" />
-            @Html.ActionLink("Create New", "Create")
-        </div>
+        <span class="font-weight-bold" style="color:#f1d8b3;font-size:18px;margin-left:20%">Price for each movie ticket: 250 MKD </span>
 }
+            @if (User.IsInRole("User"))
+    {
+                <br />
+        <span class="font-weight-bold" style="color:#f1d8b3;font-size:18px;margin-left:20%">Points: @ViewBag.Points</span>
+            }
+            else
+            {
+                <br />
+            <div class="btn btn-default" style="margin-left:29%;">
+                <img src="~/Content/addMovie.png" width="40px;" />
+                @Html.ActionLink("Create New", "Create")
+            </div>
+            }
 
         </td>
     </tr>

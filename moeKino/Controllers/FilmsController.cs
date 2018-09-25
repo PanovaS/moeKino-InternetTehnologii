@@ -34,8 +34,17 @@ namespace moeKino.Controllers
 
                 
             }
-           
-            
+            var points = 0;
+            foreach (var item in db.Clients)
+            {
+
+                if (item.Email == User.Identity.GetUserName())
+                {
+                    points = item.Points;
+                    break;
+                }
+            }
+            ViewBag.Points = points;
             return View(db.Films.ToList());
         }
         public ActionResult Soon() {
@@ -65,7 +74,7 @@ namespace moeKino.Controllers
             }
                 return View(db.Films.ToList());
         }
-        public ActionResult AcceptGift()
+        public ActionResult AcceptGift(int p)
         {
             int id = 0;
             foreach (var item in db.Clients)
@@ -78,7 +87,7 @@ namespace moeKino.Controllers
                 }
             }
             var najdiKlient = db.Clients.Find(id);
-            najdiKlient.Points = 0;
+            najdiKlient.Points = najdiKlient.Points-p;
             db.SaveChanges();
 
             return RedirectToAction("Index", "Films");
@@ -134,6 +143,19 @@ namespace moeKino.Controllers
             }
             else if (client.Points > 100)
             {
+                int id = 0;
+                foreach (var item in db.Clients)
+                {
+
+                    if (item.Email == User.Identity.GetUserName())
+                    {
+                        id = item.ClientId;
+                        break;
+                    }
+                }
+                var najdiKlient = db.Clients.Find(id);
+                najdiKlient.Points =najdiKlient.Points-101;
+                db.SaveChanges();
                 return RedirectToAction("Gift3", "Films");
 
             }
