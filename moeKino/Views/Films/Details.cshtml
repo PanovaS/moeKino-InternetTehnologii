@@ -10,28 +10,30 @@
     <span class="starRating">
 
         <input id="rating10" type="radio" name="rating" value="10">
-        <label for="rating10">10</label>
+        <label for="rating10" title="10">10</label>
         <input id="rating9" type="radio" name="rating" value="9">
-        <label for="rating9">9</label>
+        <label for="rating9" title="9">9</label>
         <input id="rating8" type="radio" name="rating" value="8">
-        <label for="rating8">8</label>
+        <label for="rating8" title="8">8</label>
         <input id="rating7" type="radio" name="rating" value="7">
-        <label for="rating7">7</label>
+        <label for="rating7" title="7">7</label>
         <input id="rating6" type="radio" name="rating" value="6">
-        <label for="rating6">6</label>
+        <label for="rating6" title="6">6</label>
         <input id="rating5" type="radio" name="rating" value="5">
-        <label for="rating5">5</label>
+        <label for="rating5" title="5">5</label>
         <input id="rating4" type="radio" name="rating" value="4">
-        <label for="rating4">4</label>
+        <label for="rating4" title="4">4</label>
         <input id="rating3" type="radio" name="rating" value="3" checked>
-        <label for="rating3">3</label>
+        <label for="rating3" title="3">3</label>
         <input id="rating2" type="radio" name="rating" value="2">
-        <label for="rating2">2</label>
+        <label for="rating2" title="2">2</label>
         <input id="rating1" type="radio" name="rating" value="1">
-        <label for="rating1">1</label>
+        <label for="rating1" title="1">1</label>
     </span>
     <button type="button" class="btn btn-sm btn-danger" onclick="here()">Rate</button>
+
     <span id="done" class="ml-4 font-weight-bold"></span>
+
 </p>
 }
 <div class="row">
@@ -59,8 +61,20 @@
                             <dd class="text-white">
                                 @Html.DisplayFor(model => model.Audience)
                             </dd>
+                            <dt>
+                                @Model.Rating.ToString("#.##")                              
+                            </dt>
 
+                            <dd class="text-white">
+                                @Html.DisplayFor(model => model.Rating)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Time)
+                            </dt>
 
+                            <dd class="text-white">
+                                @Html.DisplayFor(model => model.Time)
+                            </dd>
                             <dt>
                                 @Html.DisplayNameFor(model => model.Director)
                             </dt>
@@ -92,6 +106,7 @@
                             <dd class="text-white">
                                 @Html.DisplayFor(model => model.Stars)
                             </dd>
+
 
                         </dl>
                     </td>
@@ -149,7 +164,20 @@
                                 @Html.DisplayFor(model => model.Audience)
                             </dd>
 
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Rating)
+                            </dt>
 
+                            <dd class="text-white" id="rate">
+                                @Model.Rating.ToString("#.##")
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Time)
+                            </dt>
+
+                            <dd class="text-white">
+                                @Html.DisplayFor(model => model.Time)
+                            </dd>
                             <dt>
                                 @Html.DisplayNameFor(model => model.Director)
                             </dt>
@@ -182,6 +210,7 @@
                                 @Html.DisplayFor(model => model.Stars)
                             </dd>
 
+
                         </dl>
                     </td>
             </table>
@@ -203,6 +232,7 @@
 </p>
 
 <script>
+
    function here(){
        var rate = $('input:checked')[0].value;
        var clientid = "@ViewBag.Id";
@@ -215,8 +245,10 @@
            success: function (response) {
                if (response.success) {
                    $('#done').html(response.responseText);
+                   $('#rate').html(response.rate);
                } else {
                    $('#done').html(response.responseText);
+                  
                }
            },
            error: function (response) {
@@ -224,6 +256,8 @@
            }
            
        });
-   }
+    }
+
+    
 
 </script>

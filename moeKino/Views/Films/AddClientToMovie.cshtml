@@ -1,6 +1,6 @@
 ﻿@model moeKino.Models.RatingClient
 @{
-    ViewBag.Title = "AddClientToMovie";
+    ViewBag.Title = "Buy a ticket";
 }
 <div style="color:#f1d8b3;min-height:550px">
     <h2 class="text-center">Buy tickets for the movie - @ViewBag.Name</h2>
@@ -43,7 +43,7 @@
             $("#datepicker").datepicker({
                 minDate: new Date(),
                 maxDate: "+4w",
-                dateFormat: "dd-mm-yy"
+                dateFormat: "dd.mm.yy"
             });
         });
        

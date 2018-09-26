@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
             {
-                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style= "font-size: 0.88rem; margin-left:-4%" }))
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style= "font-size: 0.88rem; margin-left:-5%" }))
     {
 
                     @Html.AntiForgeryToken()
@@ -13,7 +13,7 @@
             
             </li>
             <li class="d-inline">
-               <button onclick="javascript:document.getElementById('logoutForm').submit()" class="btn btn-warning btn-sm text-center" id="logoff"style="border-color:black;margin-left:25%">Log off</button>
+               <button onclick="javascript:document.getElementById('logoutForm').submit()" class="btn btn-warning btn-sm text-center" id="logoff"style="border-color:black;margin-left:50%">Log off</button>
             </li>
         </ul>
     }

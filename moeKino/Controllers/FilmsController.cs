@@ -179,6 +179,21 @@ namespace moeKino.Controllers
                 Client client=db.Clients.Where(d => d.Name == User.Identity.Name).First();
                 ViewBag.Id = client.ClientId;
             }
+            foreach (var movie in db.Films.ToList())
+            {
+                var ratings = db.MovieRatings.Where(d => d.movieId.Equals(movie.Id)).ToList();
+                if (ratings.Count() > 0)
+                {
+                    var ratingSum = ratings.Sum(d => d.rating);
+                    var ratingCount = ratings.Count();
+                    movie.Rating = Convert.ToDouble(ratingSum) / ratingCount;
+                }
+                else
+                {
+                    movie.Rating = 0;
+                }
+                            
+            }
             return View(film);
         }
 
@@ -196,7 +211,17 @@ namespace moeKino.Controllers
                     MovieRatings rating = new MovieRatings(movieId, Convert.ToInt32(userRate), userId);
                     db.MovieRatings.Add(rating);
                     db.SaveChanges();
-                    return Json(new { success = true, responseText = "Thank you for rating this movie!" }, JsonRequestBehavior.AllowGet);
+
+                var rejting = 0.0;
+                   
+                        var ratingSum = ratings.Sum(d => d.rating);
+                        ratingSum += Convert.ToInt32(userRate);
+                        var ratingCount = ratings.Count();
+                        ratingCount++;
+                        rejting = Convert.ToDouble(ratingSum) / ratingCount;      
+
+                
+                return Json(new { success = true, responseText = "Thank you for rating this movie!", rate= rejting.ToString("#.##")}, JsonRequestBehavior.AllowGet);
 
                 }
                 else {

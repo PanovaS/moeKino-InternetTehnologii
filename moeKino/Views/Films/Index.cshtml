@@ -19,7 +19,7 @@
                 <br />
         <span class="font-weight-bold" style="color:#f1d8b3;font-size:18px;margin-left:20%">Points: @ViewBag.Points</span>
             }
-            else
+           @if (User.IsInRole("Admin"))
             {
                 <br />
             <div class="btn btn-default" style="margin-left:29%;">
@@ -102,7 +102,7 @@ else
             <td class="col-4 text-center mb-4">
                 <br>
                 <img src="@item.Url" width="200px" height="300px" />
-
+                <br />
 
                 @if (User.IsInRole("User"))
                 {
